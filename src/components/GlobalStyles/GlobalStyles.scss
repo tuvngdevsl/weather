@@ -2,11 +2,86 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;700;900&display=swap');
 
 :root {
-    --primary: #59516e
+    --primary: #59516e;
+    --borderRadiusDefault: 6px;
+    --textBrand: #1b4de4;
+    --textBrandDark: #039;
+    --textDefault: #2b2b2b;
+    --textDark: #000;
+    --textMedium: #2b2b2b;
+    --textBgMedium: #383838;
+    --textLight: #686c74;
+    --textSecondary: #6f7585;
+    --textOverlay: #fff;
+    --textDisabled: #43454e;
+    --textError: #eb0000;
+    --textSevere: #da291c;
+    --textValid: #34c759;
+    --alertLevel1: #ba0d00;
+    --alertLevel2: #e6731f;
+    --alertLevel3: #ebbb02;
+    --alertLevel4: #a51ccb;
+    --alertSevere: #ba0d00;
+    --borderDefault: #dedede;
+    --borderLight: #f0f0f0;
+    --borderMedium: #ceced0;
+    --borderDark: #2b2b2b;
+    --borderError: #eb0000;
+    --borderBrand: #1b4de4;
+    --backgroundDefault: #fff;
+    --backgroundLight: #ebecee;
+    --backgroundCard: #fff;
+    --backgroundBrand: #039;
+    --backgroundActive: #1b4de4;
+    --backgroundBrandAccent: #1b4de4;
+    --backgroundInverse: #000;
+    --backgroundOverlay: #fff;
+    --backgroundModalOverlay: rgba(0,0,0,0.8);
+    --backgroundShadow: rgba(0,0,0,0.2);
+    --backgroundTableBody: #f1f1f1;
+    --backgroundInverseOverlay: rgba(0,0,0,0.55);
+    --backgroundHeading: #f6f6f6;
+    --backgroundProfileIcon: #05336b;
+    --backgroundCaution: #e02020;
+    --buttonBackground: #fff;
+    --buttonInactive: #dee0e3;
+    --buttonText: #1b4de4;
+    --primaryButtonBackground: #1b4de4;
+    --primaryButtonBgDisabled: #ebecee;
+    --primaryButtonText: #fff;
+    --primaryButtonTextDisabled: #686c74;
+    --secondaryButtonBackground: #fff;
+    --secondaryButtonText: #1b4de4;
+    --buttonTrack: #6f7585;
+    --buttonThumb: #fff;
+    --buttonDisabled: #b1b1b1;
+    --primaryButton1Background: #1b4de4;
+    --primaryButton1BgDisabled: #ebecee;
+    --primaryButton1BgFocus: #039;
+    --primaryButton1Text: #fff;
+    --primaryButton1TextDisabled: #6f7585;
+    --secondaryButton1Background: #fff;
+    --secondaryButton1BgDisabled: #dee0e3;
+    --secondaryButton1BgFocus: #e7ecfc;
+    --secondaryButton1Text: #1b4de4;
+    --secondaryButton1TextDisabled: #6f7585;
+    --ghostButton1BgFocus: #f4f4f5;
+    --ghostButton1Text: #1b4de4;
+    --ghostButton1TextDisabled: #6f7585;
+    --iconLight: #fff;
+    --iconDark: #000;
+    --iconInactiveGray: #ceced0;
+    --iconSuccess: #25bef7;
+    --iconGray: #ceced0;
+    --dividerDefault: #dee0e3;
+    --module-rail-padding: 26px;
+    --module-content-padding: 10px 16px;
 }
 
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -18,4 +93,5 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    background-color: hsl(265.71deg 10.34% 60.2%);
 }

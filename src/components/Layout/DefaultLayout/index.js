@@ -1,8 +1,6 @@
 import React from 'react'
 import Header from "./Header";
 import Footer from "./Footer";
-import Sidebar from './Sidebar'
-
 
 
 const DefaultLayout = ({ children }) => {
@@ -13,7 +11,6 @@ const DefaultLayout = ({ children }) => {
                 <div className="content">
                     {children}
                 </div>
-                <Sidebar />
 
             </div>
             <Footer />

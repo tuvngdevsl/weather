@@ -1,0 +1,135 @@
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    grid-column-gap: 12px;
+    max-width: 1162px;
+    height: 500px;
+    grid-gap: 10px;
+    margin: 12px auto !important;
+    margin-left: 12px;
+    z-index: 100;
+}
+
+.weather {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 12px;
+    grid-auto-rows: max-content;
+    margin-left: 12px;
+    
+}
+
+.card {
+    width: 788px;
+    height: 224px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    margin-left: 12px;
+    background-image: url(https://s.w-x.co/WeatherImages_Web/WeatherImage_MostlyCloudy-day_5.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70);
+    color: white;
+    &-header {
+        padding: 10px 16px;
+        background-color: #615a61;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    &-body {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 16px;
+        align-items: center;
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+
+            .temperature {
+                display: block;
+                position: relative;
+                font-size: 80px;
+                line-height: 1;
+                font-weight: 500;
+            }
+
+            .description {
+                display: block;
+                position: relative;
+                font-size: 25px;
+                line-height: 1;
+                font-weight: 500;
+            }
+            .day {
+                display: block;
+                position: relative;
+                font-size: 25px;
+                line-height: 1;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.aside {
+    .aside-card {
+        width: 338px;
+        height: 280px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        margin: 12px 10px;
+        border-radius: var(--borderRadiusDefault);
+        box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+
+        .header-title {
+            padding: 16px;
+        }
+
+        .circle1 {
+            fill: transparent;
+            stroke: #e7ecf1;
+        }
+        .circle2 {
+            fill: transparent;
+            transition: stroke-dasharray 0.3s ease;
+        }
+
+        .circle-text {
+            color: #2b2b2b;
+            font-size: 2.25rem;
+            font-weight: 200;
+        }
+
+        .aside-body {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            .right-content {
+                padding: 12px 16px 0 26px;
+            }
+
+            .right-content-header {
+                display: block;
+                font-size: 2.125rem;
+                font-weight: 400;
+            }
+        }
+        .btn {
+            display: block;
+        }
+        .btn-detail {
+            background-color: var(--primaryButtonBackground);
+            border: 1px solid var(--primaryButtonBackground);
+            border: none;
+            border-radius: 16px;
+            padding: 8px 14px;
+            width: 120px;
+            cursor: pointer;
+            margin-left: 120px;
+        }
+    }
+}

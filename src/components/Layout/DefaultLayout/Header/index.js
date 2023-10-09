@@ -1,11 +1,11 @@
 import React from 'react'
+import classNames from 'classnames/bind'
+import styles from './Header.module.scss'
+
+const cx = classNames.bind(styles)
 
 const Header = () => {
-    return (
-        // Header
-        // SubHeader
-        <h2>Header bar</h2>
-    )
+    return <header className={cx('wrapper')}> Hello world </header>
 }
 
 export default Header
