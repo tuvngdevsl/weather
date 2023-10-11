@@ -6,6 +6,8 @@ const cx = classNames.bind(styles)
 
 const Header = () => {
     return <header className={cx('wrapper')}> Hello world </header>
+    abc
 }
+
 
 export default Header
