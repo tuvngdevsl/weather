@@ -18,12 +18,12 @@
     grid-column-gap: 12px;
     grid-auto-rows: max-content;
     margin-left: 12px;
-    
 }
 
 .card {
     width: 788px;
     height: 224px;
+    margin-bottom: 12px;
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--backgroundCard);
@@ -131,5 +131,116 @@
             cursor: pointer;
             margin-left: 120px;
         }
+    }
+}
+
+.card-bootstrap {
+    background-color: #fff;
+    width: "338px";
+    height: "156px";
+    margin-left: 12px;
+    border-radius: 5px;
+
+    .svg-icon {
+        display: block;
+        overflow: visible;
+        min-width: 50px;
+    }
+
+    .DonutChart--track--1fk6L {
+        fill: transparent;
+        stroke: #e7ecf1;
+        stroke-width: 4;
+    }
+
+    .DonutChart--indicator--NTUT5 {
+        stroke-width: 4;
+        stroke-dasharray: 0 144.51326206513048;
+        stroke: #00e838;
+        fill: transparent;
+        transition: stroke-dasharray 0.3s ease;
+    }
+    .content {
+        display: flex;
+        padding: 18px 16px 17px 24px;
+        align-items: center;
+        justify-content: center;
+    }
+    .subContent {
+        margin-left: 20px;
+    }
+
+    .header {
+        padding: 16px 16px 0px 16px;
+        color: #000;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .sub-title {
+        font-size: 18px;
+        font-weight: 400;
+        color: #2b2b2b;
+        line-height: 1.1em;
+        word-break: break-word;
+    }
+
+    .text {
+        margin-top: 2px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.25;
+        color: #6f7585;
+    }
+
+    .icon {
+        width: 16px;
+        flex-shrink: 0;
+        fill: #1b4de4;
+        color: #1b4de4;
+    }
+}
+
+.card-today {
+    height: 289px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 788px;
+    grid-column: span 12;
+    margin: 12px 10px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    &-content {
+        display: flex;
+    }
+    .header {
+        padding: 16px;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin: 0 8px;
+    }
+    .morning {
+        width: 170px;
+        height: 163px;
+        border-right: 1px solid #000;
+    }
+
+    .afternoon {
+        border-right: 1px solid #000;
+    }
+
+    .evening {
+        border-right: 1px solid #000;
+    }
+
+    .night {
+        border-right: 1px solid #000;
     }
 }
