@@ -1,5 +1,77 @@
-.wrapper{
-    height: 60px;
+.wrapper {
     background: #313050;
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white; /* Text color */
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.titleAndLogo {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 20px;
+    margin: 0;
+    margin-left: 8px;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.searchInput {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    width: 400px;
+    height: 40px;
+    background: url("./search.svg") no-repeat 95% center;
+    background-size: 20px 20px;
+    background-color: #4c4b65;
     color: white;
+}
+
+.rightContent {
+    display: flex;
+    align-items: center;
+}
+
+.location,
+.temperature {
+    margin-right: 10px;
+}
+
+.dropdownContainer {
+    position: relative;
+}
+
+.dropdown {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #4c4b65;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+}
+
+.dropdown::after {
+    content: "\25BC"; /* Unicode character for down arrow */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
