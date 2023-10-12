@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
+import FontAwesomeIcon from 'font-awesome/fonts/fontawesome-webfont.svg';
 
 const cx = classNames.bind(styles);
 
@@ -8,19 +9,20 @@ const Header = () => {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('location-temp')}>
-                <span>Hanoi, Vietnam</span>
-                <span>25°C</span>
+                <span>ICON 25°C Hanoi, Vietnam</span>
             </div>
-            <nav>
+            <nav className={cx('navbar')}>
                 <div>
-                    <a>H.nay</a>
+                    
+                    <a><span>H.nay</span></a>
                     <a>Hàng giờ</a>
                     <a>10 ngày</a>
                     <a>Hàng tháng</a>
                     <a>Cuối tuần</a>
                     <div>
                         <button>
-                            Thêm dự báo
+                            Thêm dự báo 
+                            <FontAwesomeIcon icon="fa-solid fa-caret-down" />
                         </button>
                         <nav>
                             <div>
