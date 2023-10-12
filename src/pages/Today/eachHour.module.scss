@@ -1,0 +1,68 @@
+.region-main {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 12px;
+    grid-auto-rows: max-content;
+    margin: 12px 80px !important;
+
+}
+.card-eachHour {
+    width: 100%;
+    height: 316px;
+    background-color: #fff;
+    border-radius: 5px;
+    grid-column: span 12;
+    margin: 12px 10px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    &-content {
+        display: flex;
+    }
+    .header {
+        padding: 16px;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 0 8px;
+    }
+    .each-hour {
+        width: 152px;
+        height: 190px;
+        text-align: center;
+        border-right: 1px solid #d1cfcf;
+    }
+
+    .each-hour:nth-child(5) {
+        border-right: none;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+        color: #1b4de4;
+    }
+    .subTemperature {
+        color: #1b4de4;
+    }
+    .btn {
+        background-color: var(--primaryButtonBackground);
+        border: 1px solid var(--primaryButtonBackground);
+        border: none;
+        border-radius: 16px;
+        padding: 8px 14px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 2rem;
+    }
+}

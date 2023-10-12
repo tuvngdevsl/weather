@@ -4,14 +4,11 @@ import classNames from 'classnames/bind'
 import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 
 const cx = classNames.bind(styles);
 
 const API_KEY = "8a20c89836ab4f28a5962338230910";
 const BASE_URL = 'http://api.weatherapi.com/v1';
-
 
 
 
@@ -41,31 +38,223 @@ const Home = () => {
             <CardGroup className={cx('card-today-content')}>
               <Card className={cx('morning')}>
                 <Card.Body>
-                  <Card.Title>Sáng</Card.Title>
-                  <Card.Subtitle> 22°</Card.Subtitle>
+                  <Card.Title className={cx('active', 'title')}>Sáng</Card.Title>
+                  <Card.Subtitle className={cx('temperature', 'active')}> 22°</Card.Subtitle>
+                  Icon
+                  <p>Icon</p>
                 </Card.Body>
               </Card>
               <Card className={cx('afternoon')}>
                 <Card.Body>
-                  <Card.Title>Chiều</Card.Title>
-                  <Card.Subtitle> 22°</Card.Subtitle>
+                  <Card.Title className={cx('title')}>Chiều</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
                 </Card.Body>
               </Card>
               <Card className={cx('evening')}>
                 <Card.Body>
-                  <Card.Title>Tối</Card.Title>
-                  <Card.Subtitle> 22°</Card.Subtitle>
+                  <Card.Title className={cx('title')}>Tối</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
                 </Card.Body>
               </Card>
               <Card className={cx('night')}>
                 <Card.Body>
-                  <Card.Title>Qua đêm</Card.Title>
-                  <Card.Subtitle> 22°</Card.Subtitle>
+                  <Card.Title className={cx('title')}>Qua đêm</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
                 </Card.Body>
               </Card>
-
             </CardGroup>
-            <Button variant='primary'> Các giờ tới</Button>
+            <Button className={cx('btn')}> Các giờ tới</Button>
+          </div>
+
+          <div className={cx('weather-today')}>
+            <Card.Header className={cx('header')}> Thời tiết hôm nay tại Web, OR </Card.Header>
+            <div className={cx('weather-header')}>
+              <div className={cx('feelsLikeTemp')}>
+                <span className={cx('feelLike')}> Cảm giác như</span>
+                <span className={cx('temperature')}> 18° </span>
+              </div>
+              <div className={cx('sunrise')}>
+                Iconnn
+              </div>
+            </div>
+            <CardGroup className={cx('weather-content')}>
+              <Card className={cx('weather-content-item')}>
+                <Card.Body>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                    </svg>
+                    <div>Cao/Thấp</div>
+                    <div >
+                      <span >26<span>°</span></span>/
+                      <span >17<span>°</span></span>
+                    </div>
+                  </div>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                      <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z" />
+                    </svg>
+                    <div>Độ ẩm</div>
+                    <div >
+                      <span>79%</span>
+                    </div>
+                  </div>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+                    </svg>
+                    <div>Áp Suất</div>
+                    <div >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+                      </svg>
+                      <span >1014.6 mb</span>
+                    </div>
+                  </div>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                      <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                      <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                    </svg>
+                    <div>Tầm nhìn</div>
+                    <div >
+                      <span>
+                        14.48 km</span>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+              <Card className={cx('weather-content-item')}>
+                <Card.Body>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                      <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    <div>Gió</div>
+                    <div >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M9.636 13.5a.5.5 0 0 1-.5.5H2.5A1.5 1.5 0 0 1 1 12.5v-10A1.5 1.5 0 0 1 2.5 1h10A1.5 1.5 0 0 1 14 2.5v6.636a.5.5 0 0 1-1 0V2.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h6.636a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd" d="M5 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1H6.707l8.147 8.146a.5.5 0 0 1-.708.708L6 6.707V10.5a.5.5 0 0 1-1 0v-5z" />
+                      </svg>
+                      <span>5 km/giờ</span>
+                    </div>
+                  </div>
+
+
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-droplet-half" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M7.21.8C7.69.295 8 0 8 0c.109.363.234.708.371 1.038.812 1.946 2.073 3.35 3.197 4.6C12.878 7.096 14 8.345 14 10a6 6 0 0 1-12 0C2 6.668 5.58 2.517 7.21.8zm.413 1.021A31.25 31.25 0 0 0 5.794 3.99c-.726.95-1.436 2.008-1.96 3.07C3.304 8.133 3 9.138 3 10c0 0 2.5 1.5 5 .5s5-.5 5-.5c0-1.201-.796-2.157-2.181-3.7l-.03-.032C9.75 5.11 8.5 3.72 7.623 1.82z" />
+                      <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
+                    </svg>
+                    <div>Điểm ngưng</div>
+                    <div >
+                      <span> 14°</span>
+                    </div>
+                  </div>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+                      <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+                    </svg>
+                    <div>Chỉ số UV</div>
+                    <div >
+                      <span >
+                        0 / 11</span>
+                    </div>
+                  </div>
+                  <div className={cx('list-item')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+                      <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z" />
+                    </svg>
+                    <div>Tuần trăng</div>
+                    <div >
+                      <span>Trăng hạ huyền</span>
+                    </div>
+                  </div>
+                </Card.Body>
+              </Card>
+            </CardGroup>
+          </div>
+
+          <div className={cx('card-eachHour')}>
+            <Card.Header className={cx('header')}>Dự báo từng giờ</Card.Header>
+            <CardGroup className={cx('card-eachHour-content')}>
+              <Card className={cx('hour-item')}>
+                <Card.Body>
+                  <Card.Title className={cx('active', 'title')}>Bây giờ</Card.Title>
+                  <Card.Subtitle className={cx('temperature', 'active')}> 22°</Card.Subtitle>
+                  Icon
+                  <p>Icon</p>
+                </Card.Body>
+              </Card>
+              <Card className={cx('hour-item')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>10:00</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
+                </Card.Body>
+              </Card>
+              <Card className={cx('hour-item')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>11:00</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 24°</Card.Subtitle>
+                </Card.Body>
+              </Card>
+              <Card className={cx('hour-item')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>12:00</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 24°</Card.Subtitle>
+                </Card.Body>
+              </Card>
+              <Card className={cx('hour-item')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>13:00</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 26°</Card.Subtitle>
+                </Card.Body>
+              </Card>
+            </CardGroup>
+            <Button className={cx('btn')}> 48 giờ tới</Button>
+          </div>
+          <div className={cx('card-eachDay')}>
+            <Card.Header className={cx('header')}> Dự báo hàng ngày </Card.Header>
+            <CardGroup className={cx('card-eachDay-content')}>
+              <Card className={cx('each-day')}>
+                <Card.Body>
+                  <Card.Title className={cx('active', 'title')}>Hôm nay</Card.Title>
+                  <Card.Subtitle className={cx('temperature', 'active')}> 22°</Card.Subtitle>
+                  <Card.Text className={cx('subTemperature')}> 17°</Card.Text>
+                  Icon
+                  <p>Icon</p>
+                </Card.Body>
+              </Card>
+              <Card className={cx('each-day')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>Th 6 13</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 26°</Card.Subtitle>
+                  <Card.Text className={cx('subTemperature')}> 17°</Card.Text>
+                </Card.Body>
+              </Card>
+              <Card className={cx('each-day')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>Th 7 14</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
+                  <Card.Text className={cx('subTemperature')}> 17°</Card.Text>
+                </Card.Body>
+              </Card>
+              <Card className={cx('each-day')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>CN 15</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
+                  <Card.Text className={cx('subTemperature')}> 17°</Card.Text>
+                </Card.Body>
+              </Card>
+              <Card className={cx('each-day')}>
+                <Card.Body>
+                  <Card.Title className={cx('title')}>Th 2 16</Card.Title>
+                  <Card.Subtitle className={cx('temperature')}> 22°</Card.Subtitle>
+                  <Card.Text className={cx('subTemperature')}> 17°</Card.Text>
+                </Card.Body>
+              </Card>
+            </CardGroup>
+            <Button className={cx('btn')}> 10 ngày tới</Button>
           </div>
         </div>
 

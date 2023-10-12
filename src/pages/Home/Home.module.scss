@@ -9,6 +9,9 @@
     margin-left: 12px;
     z-index: 100;
 }
+.active {
+    font-weight: 700;
+}
 
 .weather {
     display: grid;
@@ -229,18 +232,234 @@
     .morning {
         width: 170px;
         height: 163px;
-        border-right: 1px solid #000;
+        border-right: 1px solid #d1cfcf;
+        text-align: center;
     }
 
     .afternoon {
-        border-right: 1px solid #000;
+        width: 170px;
+        height: 163px;
+        border-right: 1px solid #d1cfcf;
+        text-align: center;
     }
 
     .evening {
-        border-right: 1px solid #000;
+        width: 170px;
+        height: 163px;
+        border-right: 1px solid #d1cfcf;
+        text-align: center;
     }
 
     .night {
-        border-right: 1px solid #000;
+        width: 170px;
+        height: 163px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+        color: #1b4de4;
+    }
+    .btn {
+        background-color: var(--primaryButtonBackground);
+        border: 1px solid var(--primaryButtonBackground);
+        border: none;
+        border-radius: 16px;
+        padding: 8px 14px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 2rem;
+    }
+}
+
+.weather-today {
+    height: 353px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 788px;
+    grid-column: span 12;
+    margin: 12px 10px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    &-content {
+        display: flex;
+    }
+    .header {
+        padding: 16px;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin: 0 8px;
+    }
+
+    .weather-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .list-item {
+        border-top: none !important;
+        padding: 10px 16px;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        align-items: center;
+        color: #2b2b2b !important;
+        box-sizing: border-box;
+        border-top: 1px solid #dedede !important;
+    }
+
+    .weather-header {
+        margin: 0 26px 25px 36px;
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-end;
+
+        .feelsLikeTemp {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            .feelsLike {
+                word-break: break-all;
+            }
+
+            .temperature {
+                font-size: 5rem;
+                font-weight: 600;
+                line-height: 1em;
+            }
+        }
+    }
+}
+
+
+.card-eachHour {
+    height: 289px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 788px;
+    grid-column: span 12;
+    margin: 12px 10px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    &-content {
+        display: flex;
+    }
+    .header {
+        padding: 16px;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 0 8px;
+    }
+    .hour-item {
+        width: 152px;
+        height: 162px;
+        text-align: center;
+        border-right: 1px solid #d1cfcf;
+    }
+
+    .hour-item:nth-child(5){
+        border-right: none;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+        color: #1b4de4;
+    }
+    .btn {
+        background-color: var(--primaryButtonBackground);
+        border: 1px solid var(--primaryButtonBackground);
+        border: none;
+        border-radius: 16px;
+        padding: 8px 14px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 2rem;
+    }
+}
+
+
+
+.card-eachDay {
+    height: 316px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 788px;
+    grid-column: span 12;
+    margin: 12px 10px;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+    &-content {
+        display: flex;
+    }
+    .header {
+        padding: 16px;
+        font-weight: 500;
+        font-size: 2rem;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 0 8px;
+    }
+    .each-day {
+        width: 152px;
+        height: 190px;
+        text-align: center;
+        border-right: 1px solid #d1cfcf;
+    }
+
+    .each-day:nth-child(5){
+        border-right: none;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+        color: #1b4de4;
+    }
+    .subTemperature{
+        color: #1b4de4; 
+    }
+    .btn {
+        background-color: var(--primaryButtonBackground);
+        border: 1px solid var(--primaryButtonBackground);
+        border: none;
+        border-radius: 16px;
+        padding: 8px 14px;
+        margin-left: 20px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: 2rem;
     }
 }
