@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import FontAwesomeIcon from 'font-awesome/fonts/fontawesome-webfont.svg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +24,8 @@ const Header = () => {
                     <div>
                         <button>
                             Thêm dự báo 
-                            <FontAwesomeIcon icon="fa-solid fa-caret-down" />
+                            <FontAwesomeIcon icon={faCaretDown} className={cx('displayarrowdown')} style={{marginLeft:'10px', fontSize:'25px'}} />
+                            <FontAwesomeIcon icon={faCaretUp} className={cx('displayarrow')} style={{marginLeft:'10px', fontSize:'25px'}}/>
                         </button>
                         <nav>
                             <div>
