@@ -9,7 +9,7 @@ import Button from 'react-bootstrap/Button'
 
 const cx = classNames.bind(styles);
 
-const API_KEY = "530cdf0be09c4e32bcc163120231210";
+
 
 
 
@@ -20,17 +20,6 @@ const Home = () => {
   const [weather, setWeather] = useState();
   const [searchResult, setSearchResult] = useState();
 
-  useEffect(() => {
-
-    const fetchApi = async () => {
-      const result = await searchServices.search(API_KEY, location);
-      setLocation(result.name)
-      
-    }
-
-    fetchApi();
-
-  }, []);
 
   return (
     <div className={cx('container')}>

@@ -1,0 +1,30 @@
+.search-result,
+.searchContainer {
+    width: 380px;
+}
+
+.search-title {
+    padding: 16px 18px 15px;
+    font-weight: 500;
+}
+.searchContainer {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 380px;
+    height: 32px;
+}
+
+.searchInput {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    width: 400px;
+    height: 30px;
+    background: url("./search.svg") no-repeat 95% center;
+    background-size: 20px 20px;
+    background-color: #4c4b65;
+    color: white;
+    text-align: center;
+}
