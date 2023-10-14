@@ -13,19 +13,19 @@ const API_KEY = "530cdf0be09c4e32bcc163120231210";
 
 const Search = () => {
     const [searchValue, setSearchValue] = useState('')
-    const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [searchResult, setSearchResult] = useState();
+    const [showResult, setShowResult] = useState(false);
 
     useEffect(() => {
-        // setSearchResult([1, 2, 3, 4])
-        const res = searchServices.search(API_KEY, searchValue);
-        console.log(searchValue)
-        console.log(res);
+        fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${searchValue}`)
+            .then(res => res.json())
+            .then(data => setSearchResult(data))
+            .catch(error => console.log(error))
 
-    }, []);
+    }, [searchValue]);
 
     const handleHideResult = () => {
-        setShowResult(false);
+        setShowResult(true);
     }
 
     const handleKeyDown = (event) => {
@@ -39,17 +39,14 @@ const Search = () => {
     return (
         <HeadlessTippy
             interactive
-            visible={showResult && searchResult.length > 0}
+            visible={showResult && searchResult}
             render={attrs => (
                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                     <PopperWrapper>
                         <h2 className={cx('search-title')}>
                             Recently
                         </h2>
-                        <LocationItem></LocationItem>
-                        <LocationItem></LocationItem>
-                        <LocationItem></LocationItem>
-                        <LocationItem></LocationItem>
+                        <LocationItem data={searchResult} />
                     </PopperWrapper>
                 </div>
             )}
