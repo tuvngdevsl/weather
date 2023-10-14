@@ -11,12 +11,14 @@ import Search from '../Search'
 
 
 
+
 const cx = classNames.bind(styles)
 
 const Header = () => {
     const [location, setLocation] = useState('VN');
     // const [temperature, setTemperature] = useState('°C');
     const [searchResult, setSearchResult] = useState([]);
+    
 
     
     const handleLocationChange = (e) => {
