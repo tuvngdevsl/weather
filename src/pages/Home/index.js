@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import * as searchServices from '../../api-service/searchService'
 import styles from './Home.module.scss'
 import classNames from 'classnames/bind'
 import Card from 'react-bootstrap/Card'
@@ -8,11 +7,6 @@ import Button from 'react-bootstrap/Button'
 
 
 const cx = classNames.bind(styles);
-
-
-
-
-
 
 const Home = () => {
 

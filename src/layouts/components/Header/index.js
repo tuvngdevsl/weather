@@ -34,10 +34,10 @@ const Header = () => {
         <>
             <header className={cx('wrapper')}>
                 <div className={cx('header')}>
-                    <div className={cx('titleAndLogo')}>
+                    <Link to='/' className={cx('titleAndLogo')}>
                         <img src={logo} alt="Logo" className={cx('logo')} />
                         <h1 className={cx('title')}>An IBM Business</h1>
-                    </div>
+                    </Link>
                     {/* Search Component */}
                     <Search />
                     <div className={cx('rightContent')}>
