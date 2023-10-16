@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './Home.module.scss'
 import classNames from 'classnames/bind'
 import Card from 'react-bootstrap/Card'
@@ -7,14 +7,15 @@ import Button from 'react-bootstrap/Button'
 import { useWeather } from '~/context/WeatherContext';
 
 
+
+
 const cx = classNames.bind(styles);
 
 const Home = () => {
-  const { weatherData } = useWeather();
-  const [location, setLocation] = useState("Ha Noi")
-  const [weather, setWeather] = useState();
-  const [searchResult, setSearchResult] = useState();
-
+  const { currentWeatherLocation } = useWeather();
+  const timestamp = 1697480457;
+  const currentTime = new Date(timestamp * 1000);
+  const formatTime = currentTime.toLocaleTimeString();
 
   return (
     <div className={cx('container')}>
@@ -22,7 +23,7 @@ const Home = () => {
         <div>
           <div className={cx('card')}>
             <div className={cx('card-header')}>
-              <h1> {location}, Web OR Kể từ 10:08 EAT</h1>
+              <h1> {currentWeatherLocation?.name} <span className={cx('current-condition')}>Kể từ {formatTime}</span></h1>
             </div>
             <div className={cx('card-body')}>
               <div className={cx('card-body-content')}>

@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css"; // Import your CSS file
 import Logo from "./R.png";
 import Logo1 from "./Logo/Georgia.png";
@@ -35,28 +34,28 @@ const Footer = () => {
         <div>
           <div className="contact-info">
             <div>
-              <a href="#">Phản hồi</a>
+              <a href="#abc">Phản hồi</a>
             </div>
             <div>
-              <a href="#">API thời tiết</a>
+              <a href="#bcd">API thời tiết</a>
             </div>
             <div>
-              <a href="#">Phòng họp báo</a>
+              <a href="#cbd">Phòng họp báo</a>
             </div>
           </div>
           <div className="contact-info horizontal">
             <div className="contact-item">
               {" "}
-              <a href="#">Điều Khoản Sử Dụng</a>{" "}
+              <a href="#adsa">Điều Khoản Sử Dụng</a>{" "}
             </div>
             <div className="contact-item">
-              <a href="#">Chính sách về quyền riêng tư</a>
+              <a href="#ád">Chính sách về quyền riêng tư</a>
             </div>
             <div className="contact-item">
-              <a href="#">Tuyên bố về khả năng truy cập</a>
+              <a href="#ád">Tuyên bố về khả năng truy cập</a>
             </div>
             <div className="contact-item">
-              <a href="#">Nhà cung cấp dữ liệu</a>
+              <a href="#asd">Nhà cung cấp dữ liệu</a>
             </div>
           </div>
           <div>
@@ -77,13 +76,13 @@ const Footer = () => {
 
           <div className="new-contact-info horizontal">
             <div className="new-contact-item">
-              <a href="#">Quyền dữ liệu</a>
+              <a href="#aa">Quyền dữ liệu</a>
             </div>
             <div className="new-contact-item">
               © Bản quyền TWC Product and Technology LLC 2014, 2023
             </div>
             <div className="new-contact-item">
-              Cung cấp bởi<img src={Logo2} style={{width:"50px", height: "40px"}}/>IBM Cloud
+              Cung cấp bởi<img src={Logo2} style={{width:"50px", height: "40px"}} alt=""/>IBM Cloud
             </div>
             {/* nrew */}
           </div>

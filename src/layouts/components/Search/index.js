@@ -6,7 +6,7 @@ import LocationItem from '~/components/LocationItem';
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 import { useDebounce } from '~/hook';
-import { useWeather } from '~/context/WeatherContext';
+// import { useWeather } from '~/context/WeatherContext';
 import * as searchServices from "~/services/searchService";
 
 
@@ -16,7 +16,7 @@ const cx = classNames.bind(styles)
 
 
 const Search = () => {
-    const { updateWeatherData } = useWeather();
+    // const { updateWeatherData } = useWeather();
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState();
     const [showResult, setShowResult] = useState(false);
@@ -33,9 +33,9 @@ const Search = () => {
 
         }
 
-        updateWeatherData(searchResult)
+        // updateWeatherData(searchResult)
         fetchApi();
-    }, [debounced, searchResult, updateWeatherData]);
+    }, [debounced]);
 
 
     const handleHideResult = () => {

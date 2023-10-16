@@ -1,7 +1,7 @@
 import * as request from '../utils/http';
 
 
-const OPEN_API_KEY = "f9bbf6d611bb4b6059079db15cafd2fc"
+const OPEN_API_KEY = "aa758be0dbb67363e6c09ff2cbd74ca9"
 
 
 export const search = async (location) => {

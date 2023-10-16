@@ -10,8 +10,6 @@ export const currentWeather = async (latitude, longitude) => {
                 appid: OPEN_API_KEY
             }
         })
-        console.log(res.data);
-
         return res.data;
     } catch (error) {
         console.log(error)

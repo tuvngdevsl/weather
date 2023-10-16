@@ -9,6 +9,7 @@
     margin-left: 12px;
     z-index: 100;
 }
+
 .active {
     font-weight: 700;
 }
@@ -33,6 +34,7 @@
     margin-left: 12px;
     background-image: url(https://s.w-x.co/WeatherImages_Web/WeatherImage_MostlyCloudy-day_5.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70);
     color: white;
+
     &-header {
         padding: 10px 16px;
         background-color: #615a61;
@@ -46,6 +48,7 @@
         justify-content: space-between;
         padding: 10px 16px;
         align-items: center;
+
 
         &-content {
             display: flex;
@@ -66,6 +69,7 @@
                 line-height: 1;
                 font-weight: 500;
             }
+
             .day {
                 display: block;
                 position: relative;
@@ -73,6 +77,7 @@
                 line-height: 1;
                 font-weight: 500;
             }
+
         }
     }
 }
@@ -96,6 +101,7 @@
             fill: transparent;
             stroke: #e7ecf1;
         }
+
         .circle2 {
             fill: transparent;
             transition: stroke-dasharray 0.3s ease;
@@ -111,6 +117,7 @@
             display: flex;
             padding: 10px;
             align-items: center;
+
             .right-content {
                 padding: 12px 16px 0 26px;
             }
@@ -121,9 +128,11 @@
                 font-weight: 400;
             }
         }
+
         .btn {
             display: block;
         }
+
         .btn-detail {
             background-color: var(--primaryButtonBackground);
             border: 1px solid var(--primaryButtonBackground);
@@ -163,12 +172,14 @@
         fill: transparent;
         transition: stroke-dasharray 0.3s ease;
     }
+
     .content {
         display: flex;
         padding: 18px 16px 17px 24px;
         align-items: center;
         justify-content: center;
     }
+
     .subContent {
         margin-left: 20px;
     }
@@ -214,9 +225,11 @@
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--backgroundCard);
+
     &-content {
         display: flex;
     }
+
     .header {
         padding: 16px;
         font-weight: 500;
@@ -229,6 +242,7 @@
         gap: 15px;
         margin: 0 8px;
     }
+
     .morning {
         width: 170px;
         height: 163px;
@@ -264,6 +278,7 @@
         font-size: 3rem;
         color: #1b4de4;
     }
+
     .btn {
         background-color: var(--primaryButtonBackground);
         border: 1px solid var(--primaryButtonBackground);
@@ -287,9 +302,11 @@
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--backgroundCard);
+
     &-content {
         display: flex;
     }
+
     .header {
         padding: 16px;
         font-weight: 500;
@@ -333,6 +350,7 @@
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+
             .feelsLike {
                 word-break: break-all;
             }
@@ -357,9 +375,11 @@
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--backgroundCard);
+
     &-content {
         display: flex;
     }
+
     .header {
         padding: 16px;
         font-weight: 500;
@@ -371,6 +391,7 @@
         grid-template-columns: repeat(5, 1fr);
         margin: 0 8px;
     }
+
     .hour-item {
         width: 152px;
         height: 162px;
@@ -378,7 +399,7 @@
         border-right: 1px solid #d1cfcf;
     }
 
-    .hour-item:nth-child(5){
+    .hour-item:nth-child(5) {
         border-right: none;
     }
 
@@ -390,6 +411,7 @@
         font-size: 3rem;
         color: #1b4de4;
     }
+
     .btn {
         background-color: var(--primaryButtonBackground);
         border: 1px solid var(--primaryButtonBackground);
@@ -415,9 +437,11 @@
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--backgroundCard);
+
     &-content {
         display: flex;
     }
+
     .header {
         padding: 16px;
         font-weight: 500;
@@ -429,6 +453,7 @@
         grid-template-columns: repeat(5, 1fr);
         margin: 0 8px;
     }
+
     .each-day {
         width: 152px;
         height: 190px;
@@ -436,7 +461,7 @@
         border-right: 1px solid #d1cfcf;
     }
 
-    .each-day:nth-child(5){
+    .each-day:nth-child(5) {
         border-right: none;
     }
 
@@ -448,9 +473,11 @@
         font-size: 3rem;
         color: #1b4de4;
     }
-    .subTemperature{
-        color: #1b4de4; 
+
+    .subTemperature {
+        color: #1b4de4;
     }
+
     .btn {
         background-color: var(--primaryButtonBackground);
         border: 1px solid var(--primaryButtonBackground);
@@ -462,4 +489,11 @@
         color: #fff;
         font-weight: 2rem;
     }
+}
+
+.current-condition {
+    font-size: 1.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
