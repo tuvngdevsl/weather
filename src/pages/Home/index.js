@@ -4,12 +4,13 @@ import classNames from 'classnames/bind'
 import Card from 'react-bootstrap/Card'
 import CardGroup from 'react-bootstrap/CardGroup';
 import Button from 'react-bootstrap/Button'
+import { useWeather } from '~/context/WeatherContext';
 
 
 const cx = classNames.bind(styles);
 
 const Home = () => {
-
+  const { weatherData } = useWeather();
   const [location, setLocation] = useState("Ha Noi")
   const [weather, setWeather] = useState();
   const [searchResult, setSearchResult] = useState();

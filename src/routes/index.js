@@ -9,7 +9,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/month', component: Month },
     { path: '/today', component: Today },
-    { path: '/I/:location', component: Today },
+    { path: '/I/:location', component: Home },
     { path: '/weekend', component: Weekend, layout: null },
 ]
 

@@ -6,6 +6,7 @@ import LocationItem from '~/components/LocationItem';
 import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 import { useDebounce } from '~/hook';
+import { useWeather } from '~/context/WeatherContext';
 import * as searchServices from "~/services/searchService"
 
 
@@ -14,6 +15,7 @@ const cx = classNames.bind(styles)
 
 
 const Search = () => {
+    const { updateWeatherData } = useWeather();
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState();
     const [showResult, setShowResult] = useState(false);
@@ -30,8 +32,10 @@ const Search = () => {
 
         }
 
+        updateWeatherData(searchResult)
         fetchApi();
-    }, [debounced]);
+    }, [debounced, searchResult, updateWeatherData]);
+
 
     const handleHideResult = () => {
         setShowResult(true);
@@ -57,7 +61,7 @@ const Search = () => {
                             <h2 className={cx('search-title')}>
                                 Recently
                             </h2>
-                            <LocationItem data={searchResult} key={searchResult?.id}/>
+                            <LocationItem data={searchResult} key={searchResult?.id} />
                         </PopperWrapper>
                     </div>
                 )}

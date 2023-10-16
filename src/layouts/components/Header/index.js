@@ -7,19 +7,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faEarthAmericas, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import Search from '../Search'
 
-
-
-
-
-
 const cx = classNames.bind(styles)
 
 const Header = () => {
     const [location, setLocation] = useState('VN');
     // const [temperature, setTemperature] = useState('°C');
-    const [searchResult, setSearchResult] = useState([]);
-    
-
     
     const handleLocationChange = (e) => {
         const newLocation = e.target.value;
