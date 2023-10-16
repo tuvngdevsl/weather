@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classNames from 'classnames/bind'
 import logo from './logo.png';
 import styles from './Header.module.scss'
@@ -6,21 +6,45 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faEarthAmericas, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import Search from '../Search'
+import { currentWeather } from "~/services/currentWeatherService"
 
 const cx = classNames.bind(styles)
 
 const Header = () => {
     const [location, setLocation] = useState('VN');
+    const [weather, setWeather] = useState(null);
+    const [loading, setLoading] = useState(true);
     // const [temperature, setTemperature] = useState('°C');
-    
+
     const handleLocationChange = (e) => {
         const newLocation = e.target.value;
         setLocation(newLocation);
     }
 
+
+    //get weather in this location
+    useEffect(() => {
+        const fetchApi = async () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const {latitude, longitude} = position.coords;
+                    const result = currentWeather(latitude, longitude);
+                    console.log(result);
+                    setWeather(result);
+                })
+            } else {
+                console.error('Geolocation is not supported by your browser.')
+            }
+        }
+        fetchApi();
+
+    }, [])
+
     // const handleTemperatureUnitChange = (e) => {
     //     setTemperature(`${temperature.endsWith('°C') ? '°F' : '°C'}`);
     // }
+
+
 
     return (
         <>

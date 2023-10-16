@@ -7,7 +7,8 @@ import classNames from 'classnames/bind'
 import styles from './Search.module.scss'
 import { useDebounce } from '~/hook';
 import { useWeather } from '~/context/WeatherContext';
-import * as searchServices from "~/services/searchService"
+import * as searchServices from "~/services/searchService";
+
 
 
 
