@@ -1,8 +1,11 @@
 import React from "react";
 import "./Footer.css"; // Import your CSS file
-import Logo from "./R.png";
+import Logo from "./logo.png";
 import Logo1 from "./Logo/Georgia.png";
 import Logo2 from "./Logo/cloud.png";
+import "font-awesome/css/font-awesome.min.css";
+import MyModule from "./my-module.js";
+
 const Footer = () => {
   return (
     <footer>
@@ -23,13 +26,15 @@ const Footer = () => {
               <i className="fab fa-youtube"></i>
             </a>
           </div>
-
+          <div className="scroll-to-top">
+            <button id="scrollToTopButton">
+              <i className="fas fa-arrow-up"></i>
+            </button>
+          </div>
           <div className="right-section">
-            <img
-              src={Logo}
-              alt="Logo"
-              style={{ width: "50px", height: "50px" }}
-            />
+            <div className="image-container">
+              <img src={Logo} alt="Logo" style={{ height: "50px" }} />
+            </div>
           </div>
         </div>
         <div>
@@ -101,12 +106,11 @@ const Footer = () => {
             </div>
             <div className="new-contact-item">
               <a href="https://www.ibm.com/cloud">
-              Cung cấp bởi
-              <img src={Logo2} style={{ width: "50px", height: "40px" }} />
-              IBM Cloud
+                Cung cấp bởi
+                <img src={Logo2} style={{ width: "50px", height: "40px" }} />
+                IBM Cloud
               </a>
             </div>
-            
           </div>
         </div>
       </div>
