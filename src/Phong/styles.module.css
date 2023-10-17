@@ -1,0 +1,260 @@
+/* Disclosure component*/
+.Disclosure {
+    background-color: white;
+    text-align: center;
+}
+
+.Disclosure svg:last-child {
+    width: 20px;
+    height: 20px;
+}
+
+.Disclosure:active {
+    background-color: var(--gh-blue-1);
+    border: 1px solid black;
+    border-radius: 10px;
+    transform: rotateY('angle');
+}
+
+
+
+.WeatherItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 10%;
+    justify-content: flex-start;
+}
+
+/* .WeatherItem svg {
+    width: 30%;
+
+} */
+
+.Disclosure span {
+    padding-left: 5px;
+
+}
+
+.DaypartDetails {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    font-weight: 100;
+}
+
+.DaypartDetails h3 {
+    font-weight: 100;
+}
+
+.DetailsSummary {
+    display: flex;
+    width: 100%;
+}
+
+/* DisplayFull conponent */
+.CustomDiv {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+}
+
+.Disfull {
+    padding: 5px 26px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+    width: 100%;
+
+}
+
+.Disfull h3 {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.Disfull span {
+    font-weight: 600;
+}
+
+.ConditionsSummary {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+
+.ConditionsSummary_title {
+    font-size: 30px;
+    font-weight: 500;
+    width: 20%;
+}
+
+.ConditionsSummary_icon {
+    width: 20%;
+}
+
+.ConditionsSummary_icon svg {
+    width: 40px;
+    height: 40px;
+    margin-top: 3px;
+}
+
+.DailyContent {
+    margin-left: auto;
+}
+
+.DailyContent div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.DaybreakLargeScreen_Title {
+    padding: 16px 26px 6px !important;
+
+}
+
+.Disfull_Table {
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.Disfull_Table span {
+    display: block;
+}
+
+.Disfull_Table svg {
+    margin-top: 4px;
+}
+
+.Disfull_Table ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 20px;
+}
+
+.Disfull_Table li {
+    display: flex;
+    gap: 10px;
+
+}
+
+.Disfull_Table li:first-child,
+li:nth-child(2) {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.219);
+}
+
+.Disfull_Table li>div>span:first-child {
+    font-weight: 400;
+}
+
+/* WeatherItem component */
+
+.Disfulltime {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+/* ListWeather */
+.DaybreakLargeScreen {
+    /* display: grid;
+grid-template-rows: repeat(12, 1fr); */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1 solid black;
+    border-radius: 10px;
+    width: 780px;
+    margin: 0 auto;
+
+}
+
+.Aside {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    max-height: 300px;
+}
+
+.AdvertisementHeader {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.Ads iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+}
+
+.Tenday {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 350px);
+    grid-column-gap: 12px;
+    max-width: 1162px;
+    margin: 0 auto;
+
+}
+
+.Tenday_Ads {
+    display: grid;
+    grid-auto-rows: max-content;
+    grid-auto-columns: 100%;
+    grid-row-gap: 12px;
+
+}
+
+.DivHeader {
+    padding-left: 30px;
+}
+
+/* ---------------------------- */
+
+.NavCustom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    margin-top: 14px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 20px;
+    width: 95%;
+    border-bottom: 1px solid black;
+}
+
+.NavCustom button,
+select {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+
+
+
+.SelectDiv button {
+    color: rgba(0, 0, 0, 0.363);
+    border: 1px solid rgba(28, 36, 82, 0.363);
+    padding: 0 20px;
+    border-radius: 20px;
+}
+
+.SelectDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.WeekDiv {
+    margin-top: 20px;
+    padding-left: 27px;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
