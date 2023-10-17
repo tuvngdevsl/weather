@@ -18,8 +18,8 @@ const cx = classNames.bind(styles)
 const Search = () => {
     // const { updateWeatherData } = useWeather();
     const [searchValue, setSearchValue] = useState('');
-    const [searchResult, setSearchResult] = useState();
-    const [showResult, setShowResult] = useState(false);
+    const [searchResult, setSearchResult] = useState([]);
+    const [showResult, setShowResult] = useState(true);
     const debounced = useDebounce(searchValue, 500)
 
     useEffect(() => {
@@ -30,7 +30,6 @@ const Search = () => {
         const fetchApi = async () => {
             const result = await searchServices.search(debounced);
             setSearchResult(result);
-
         }
 
         // updateWeatherData(searchResult)
@@ -39,7 +38,7 @@ const Search = () => {
 
 
     const handleHideResult = () => {
-        setShowResult(true);
+        setShowResult(false);
     }
 
     const handleKeyDown = (event) => {
@@ -55,14 +54,25 @@ const Search = () => {
             <HeadlessTippy
                 interactive
                 appendTo={() => document.body}
-                visible={showResult && searchResult}
+                visible={showResult && searchResult?.length > 0}
                 render={attrs => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h2 className={cx('search-title')}>
-                                Recently
+                                Recents
                             </h2>
-                            <LocationItem data={searchResult} key={searchResult?.id} />
+                            {
+                                searchResult.length > 0 ? (
+                                    searchResult?.map((result) => (
+                                        <LocationItem data={result} key={result.Key} />
+                                    ))
+                                ) : (
+                                    <div className={cx('wrapper')}>
+                                        <span className={cx('message')}>Không tìm thấy kết quả nào!</span>
+                                    </div>
+                                )
+                            }
+
                         </PopperWrapper>
                     </div>
                 )}

@@ -23,7 +23,7 @@ const Home = () => {
         <div>
           <div className={cx('card')}>
             <div className={cx('card-header')}>
-              <h1> {currentWeatherLocation?.name} <span className={cx('current-condition')}>Kể từ {formatTime}</span></h1>
+              <h1> {currentWeatherLocation?.name} </h1> <span className={cx('current-condition')}>Kể từ {formatTime}</span>
             </div>
             <div className={cx('card-body')}>
               <div className={cx('card-body-content')}>

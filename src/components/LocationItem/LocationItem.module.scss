@@ -8,12 +8,13 @@
     text-decoration: none;
 }
 
-.wrapper:hover{
+.wrapper:hover {
     background-color: #1b4de4;
-    color:white;
     border-radius: 5px;
-
-    .menu{
+    .menu {
+        color: white;
+    }
+    .name {
         color: white;
     }
 }
@@ -27,7 +28,7 @@
 }
 .temperature {
     font-weight: 600;
-    font-size: 1,7rem;
+    font-size: 1, 7rem;
     width: 22px;
     padding: 0 15px 0 0;
 }
@@ -39,10 +40,11 @@
 
 .name {
     font-weight: 500;
+    color: #000;
 }
 
 .sub-name {
-    color: rgba(22,24,35, 0.5);
+    color: rgba(22, 24, 35, 0.5);
     font-size: 1.4rem;
 }
 
@@ -54,5 +56,4 @@
     width: 64px;
     height: 64px;
     color: #e3e3e3;
-    
 }

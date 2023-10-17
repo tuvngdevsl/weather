@@ -1,6 +1,7 @@
 .search-result,
 .searchContainer {
     width: 380px;
+   
 }
 
 .search-title {
@@ -27,4 +28,9 @@
     background-color: #4c4b65;
     color: white;
     text-align: center;
+}
+
+.searchInput:focus{
+    border: none;
+    
 }
