@@ -1,0 +1,134 @@
+.DaybreakLargeScreen {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1 solid black;
+    width: 100%;
+    margin: 0 auto !important;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+
+    .Sub-Title {
+        font-size: 1.75rem;
+        font-weight: 400;
+    }
+
+    .Header-Title {
+        padding: 16px 26px 6px !important;
+    }
+
+    .Sub-Header {
+        padding: 0 28px 21px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+        font-size: 1.5rem;
+        opacity: 0.65;
+    }
+
+    .Day-Title {
+        padding: 10px var(--module-rail-padding);
+        margin: 0;
+        border-top: 1px solid #dedede;
+        border-bottom: 1px solid #dedede;
+        font-size: 1.25rem;
+    }
+
+    .Nav-Header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        margin-top: 14px;
+        text-align: center;
+        padding: 10px;
+        margin-left: 20px;
+        width: 95%;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .Select-Month button {
+        color: rgba(0, 0, 0, 0.363);
+        border: 1px solid rgba(28, 36, 82, 0.363);
+        padding: 0 20px;
+        border-radius: 20px;
+    }
+
+    .Select-Month {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Month-Option {
+        position: relative;
+    }
+
+    .Month-Option select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 10px;
+        border: none;
+        width: 80px;
+        cursor: pointer;
+    }
+
+    .Month-Option::after {
+        content: "\25BC";
+        /* Mũi tên xuống Unicode */
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        transform: translateY(-49%);
+        pointer-events: none;
+        color: #555;
+        /* Màu của mũi tên xuống */
+    }
+
+    .Year-Option {
+        position: relative;
+    }
+
+    .Year-Option select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 10px;
+        border: none;
+        width: 80px;
+        cursor: pointer;
+    }
+
+    .Year-Option::after {
+        content: "\25BC";
+        /* Mũi tên xuống Unicode */
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-49%);
+        pointer-events: none;
+        color: #555;
+        /* Màu của mũi tên xuống */
+    }
+
+    .Card-Content {
+
+        .DayOfWeek {
+            display: flex;
+            box-shadow: 0;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 1em;
+
+            dt {
+                flex: 1;
+                font-weight: 500;
+                font-size: 1.5rem;
+                text-transform: uppercase;
+                color: #2b2b2b;
+                width: 140px;
+                text-align: center;
+            }
+        }
+    }
+}

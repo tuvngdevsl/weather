@@ -7,7 +7,7 @@ import TenDay from '~/pages/10Day'
 
 // Không cần đăng nhập vẫn xem đươc
 const publicRoutes = [
-    { path: '/today', component: Home },
+    { path: '/', component: Home },
     { path: '/monthly', component: Monthly },
     { path: '/hourly', component: Hourly },
     { path: '/today', component: Today },
