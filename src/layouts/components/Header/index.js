@@ -135,11 +135,11 @@ const Header = () => {
 
                     <nav className={cx('navbar')}>
                         <div>
-                            <Link to="/"> H.nay</Link>
-                            <Link to="/hourly" > Hàng giờ</Link>
-                            <Link to="/10day">10 ngày </Link>
-                            <Link to="">Hàng tháng</Link>
-                            <Link to="">Cuối tuần</Link>
+                            <Link to="/today"> Today</Link>
+                            <Link to="/hourly" > Hourly</Link>
+                            <Link to="/10day">10 Day </Link>
+                            <Link to="/monthly">Monthly</Link>
+                            <Link to="/weekend">Weekend</Link>
                             <div>
                                 <button>
                                     Thêm dự báo

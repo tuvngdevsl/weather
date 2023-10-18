@@ -4,7 +4,7 @@ import { AiOutlineDown } from "react-icons/ai";
 import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
-import DayDeatail from '../DayPartDetail';
+import DayDetail from '../DayDetail';
 import { Fragment, useState } from 'react';
 
 const cx = classNames.bind(styles);
@@ -15,7 +15,6 @@ const DayItem = ({ props }) => {
     console.log(event.target.parentNode);
     if (event.target.parentNode) {
       !isClose ? (
-        
         setClose(true)
       ) : (
         setClose(false)
@@ -24,7 +23,7 @@ const DayItem = ({ props }) => {
   }
   return (
     <>
-      <div className={cx('Disclosure')} style={{ visibility: `${!isClose ? "hidden" : "visible"}` }} onClick={handleToggle}>
+      <div className={cx('Disclosure')} onClick={handleToggle}>
         <div className={cx('DaypartDetails')}>
           <div className={cx('DetailsSummary')}>
             <h5>Tối nay</h5>
@@ -71,7 +70,7 @@ const DayItem = ({ props }) => {
       <div>
         {
           !isClose ? (
-            <DayDeatail></DayDeatail>
+            <DayDetail></DayDetail>
           ) : (
             <Fragment></Fragment>
           )

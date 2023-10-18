@@ -6,7 +6,7 @@ import { BiWind } from "react-icons/bi";
 
 const cx = classNames.bind(styles)
 
-const DayDeatail = ({ props }) => {
+const DayDetail = ({ props }) => {
     const temperature = "17"
     return (
         <div className={cx('Day-Detail')}>
@@ -68,4 +68,4 @@ const DayDeatail = ({ props }) => {
     )
 }
 
-export default DayDeatail
+export default DayDetail

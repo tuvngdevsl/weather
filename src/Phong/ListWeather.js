@@ -1,7 +1,7 @@
 import React from 'react'
 import WeatherItem from './WeatherItem'
 import styles from './styles.module.css';
-import { WeatherData } from './WeatherData' 
+import { WeatherData } from '../mock/WeatherData' 
 
 const ListWeather = () => {
   return (

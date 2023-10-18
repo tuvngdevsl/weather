@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";

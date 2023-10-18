@@ -1,11 +1,9 @@
-import ListWeather from "../../Phong/ListWeather"
+
 import styles from './10Day.module.scss';
 import classNames from "classnames/bind";
 import DayItem from "~/components/DayItem";
 
 const cx = classNames.bind(styles)
-
-
 
 
 const TenDay = () => {

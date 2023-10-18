@@ -1,0 +1,50 @@
+/* Disclosure component */
+
+.Disclosure {
+    background-color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+
+    .DaypartDetails {
+        display: flex;
+        padding: 10px 20px;
+        align-items: center;
+        font-weight: 100;
+    }
+
+    .DaypartDetails h5 {
+        font-weight: 400;
+        width: 10%;
+        display: flex;
+        align-items: center;
+    }
+
+    .DetailsSummary {
+        display: flex;
+        width: 100%;
+    }
+
+    .temparature {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        font-size: 1.75rem;
+
+        .temperatureDay {
+            font-weight: 700;
+        }
+    }
+
+    .WeatherItem {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 298px;
+        justify-content: flex-start;
+    }
+
+    .icon {
+        width: 34px;
+        height: 34px;
+    }
+}

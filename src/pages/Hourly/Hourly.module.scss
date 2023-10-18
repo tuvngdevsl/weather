@@ -1,0 +1,35 @@
+.DaybreakLargeScreen {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1 solid black;
+    width: 100%;
+    margin: 0 auto !important;
+    border-radius: var(--borderRadiusDefault);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--backgroundCard);
+
+    .Sub-Title{
+        font-size: 1.75rem;
+        font-weight: 400;
+    }
+
+    .Header-Title {
+        padding: 16px 26px 6px !important;
+    }
+
+    .Sub-Header {
+        padding: 0 28px 21px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.233);
+        font-size: 1.5rem;
+        opacity: 0.65;
+    }
+
+    .Day-Title{
+        padding: 10px var(--module-rail-padding);
+        margin: 0;
+        border-top: 1px solid #dedede;
+        border-bottom: 1px solid #dedede;
+        font-size: 1.25rem;
+    }
+}
