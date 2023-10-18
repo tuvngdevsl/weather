@@ -130,5 +130,12 @@
                 text-align: center;
             }
         }
+
+        .Calender-Wrapper{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            margin: -5px 15px 15px;
+        }
     }
 }

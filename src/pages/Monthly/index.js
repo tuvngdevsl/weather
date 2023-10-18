@@ -1,6 +1,7 @@
 import classNames from "classnames/bind"
 import styles from './Monthly.module.scss'
 import { useState } from "react";
+import DayCellItem from "~/components/DayCellItem";
 
 const cx = classNames.bind(styles);
 
@@ -83,6 +84,9 @@ const Monthly = () => {
             ))
           }
         </dl>
+        <div className={cx('Calender-Wrapper')}>
+          <DayCellItem></DayCellItem>
+        </div>
       </div>
 
     </div>

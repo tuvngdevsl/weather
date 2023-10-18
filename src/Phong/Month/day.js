@@ -4,8 +4,7 @@ import styles from "./styles.module.css"
 
 
 const Day = (props) => {
- 
-  
+
   return (
     <div>
       <button className={`${styles.Day} ${props.active ? styles.DivActive : ""}`} onClick={props.onClick}>
@@ -21,20 +20,21 @@ const Day = (props) => {
         <span className={props.active ? `${styles.SpanActive}` : ""}
           style={{ display: "block", width: "22px", height: "23px", fontWeight: "300", margin: "5px 0 auto" }}>
 
-          {props.day}</span>
+          {props.day}
+        </span>
 
         <div className={styles.IconCloud} >
           <BsCloudsFill color='#039' />
-          
+
         </div>
 
         <div className={styles.Bottom}>
           <div>
-            <span style={{ fontWeight: 500, fontSize: "25px" }}>{props.temperatureDay==0?"--":`${props.temperatureDay}°`}</span>
+            <span style={{ fontWeight: 500, fontSize: "25px" }}>{props.temperatureDay == 0 ? "--" : `${props.temperatureDay}°`}</span>
 
           </div>
           <div >
-            <span style={{ fontWeight: 300, fontSize: "15px" }}>{props.temperatureNight==0?"--":`${props.temperatureNight}°`}</span>
+            <span style={{ fontWeight: 300, fontSize: "15px" }}>{props.temperatureNight == 0 ? "--" : `${props.temperatureNight}°`}</span>
           </div>
         </div>
       </button>

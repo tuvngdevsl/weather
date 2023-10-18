@@ -1,0 +1,65 @@
+.Day-Cell {
+    display: flex;
+    width: 106px;
+    padding: 10px 0;
+    margin: 0;
+    flex: 1 1 14.2857%;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #dedede !important;
+    position: relative;
+    line-height: 1.15;
+    font-size: 100%;
+    outline: 5px auto #1b4de4;
+    cursor: pointer;
+}
+
+
+.SpanActive {
+    border: 1px solid blue;
+    border-radius: 100rem;
+    padding-top: 2px;
+    background-color: blue;
+}
+
+
+.IconMoon {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    fill: #6f7585;
+}
+
+.IconCloud {
+    margin: 5px auto 0;
+}
+
+.IconCloud svg {
+    width: 50px;
+    height: 30px;
+
+}
+
+.Bottom {
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: left;
+}
+
+
+.SpanActive {
+    border: 1px solid blue;
+    border-radius: 100rem;
+    padding-top: 2px;
+    background-color: blue;
+}
+
+.DivActive {
+    border: 2px solid blue;
+    border-radius: 5px;
+}
