@@ -1,9 +1,9 @@
-import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
+import { AiOutlineUp } from "react-icons/ai";
 import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
 import classNames from "classnames/bind";
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 
 import styles from './HourlyItem.module.scss'
 import HourlyDetail from "~/components/HourlyDetail";

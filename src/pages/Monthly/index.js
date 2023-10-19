@@ -67,15 +67,16 @@ const Monthly = () => {
 
       <div className={cx('Nav-Content')}>
         <nav className={cx('Nav-Header')}>
-          <button style={{ color: "blue" }}> {"<"} Tháng 9</button>
+          <button className={cx('Button-Month')} > {"<"}Tháng 9</button>
           <div className={cx('Select-Month')}>
             <MonthSelect />
             <YearSelect />
             <button>Xem</button>
           </div>
-          <button style={{ color: "blue" }}>Tháng 11 {">"}</button>
+          <button className={cx('Button-Month')} >Tháng 11 {">"}</button>
         </nav>
       </div>
+
       <div className={cx('Card-Content')}>
         <dl className={cx('DayOfWeek')}>
           {
@@ -87,11 +88,21 @@ const Monthly = () => {
         <div className={cx('Calender-Wrapper')}>
           <DayCellItem />
           <DayCellItem />
-          
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+          <DayCellItem />
+
         </div>
       </div>
 
-    </div>
+    </div >
 
 
   )

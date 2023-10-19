@@ -4,12 +4,18 @@ import { WiMoonAltWaningGibbous1 } from 'react-icons/wi'
 import DayInfoDetail from '../DayInfoDetail'
 
 import styles from './DayCellItem.module.scss'
+import { useState } from 'react'
 const cx = classNames.bind(styles)
 
 const DayCellItem = ({ props }) => {
+    const [isActive, setIsActive] = useState(true)
+    const handleDisplayDayDetail = () => {
+        setIsActive(!isActive);
+    }
+
     return (
         <div>
-            <button className={cx('Day-Cell')}>
+            <button className={cx('Day-Cell')} onClick={handleDisplayDayDetail}>
                 <div>
                     <WiMoonAltWaningGibbous1 className={cx('Icon_Moon')} />
                 </div>
@@ -37,8 +43,11 @@ const DayCellItem = ({ props }) => {
                     </div>
                 </div>
             </button>
-
-            <DayInfoDetail />
+            {
+                isActive && (
+                    <DayInfoDetail />
+                )
+            }
         </div>
     )
 }

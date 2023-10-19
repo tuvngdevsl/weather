@@ -1,6 +1,5 @@
 import Home from '~/pages/Home'
 import Monthly from '~/pages/Monthly'
-import Today from '~/pages/Today'
 import Weekend from '~/pages/Weekend'
 import Hourly from '~/pages/Hourly'
 import TenDay from '~/pages/10Day'
