@@ -4,6 +4,7 @@
     background-color: #fff;
     text-align: center;
     border-bottom: 1px solid #dedede;
+    cursor: pointer;
 
     .DaypartDetails {
         display: flex;
@@ -46,5 +47,11 @@
     .icon {
         width: 34px;
         height: 34px;
+    }
+
+    .false{
+        transform: rotate(180deg);
+        transition: all 0.25s;
+        border-radius: 3px;
     }
 }

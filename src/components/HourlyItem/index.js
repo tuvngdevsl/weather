@@ -1,4 +1,4 @@
-import { AiOutlineDown } from "react-icons/ai";
+import { AiOutlineDown, AiOutlineUp } from "react-icons/ai";
 import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
@@ -10,13 +10,16 @@ import HourlyDetail from "~/components/HourlyDetail";
 
 const cx = classNames.bind(styles);
 
-const handleToggle = () => {
 
-}
 
 
 const HourlyItem = ({ props }) => {
-    const [isClose, setClose] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
+
+    const handleToggle = () => {
+        setIsOpen(prevIsOpen => !prevIsOpen);
+    }
+
     return (
         <>
             <div className={cx('Disclosure')} onClick={handleToggle}>
@@ -51,22 +54,11 @@ const HourlyItem = ({ props }) => {
                             </span>
                         </div>
                     </div>
-                    <AiOutlineDown color='#1b4de4' style={{
-                        transform: `rotate(${!props?.close ? 180 : 0}deg)`,
-                        transition: "all 0.25s",
-                        border: `${props?.close ? "2px solid blue" : "none"}`,
-                        borderRadius: `${props?.close ? "3px" : "0"}`
-                    }} />
+                    <AiOutlineUp color='#1b4de4' className={cx(`${isOpen}`)} />
                 </div>
             </div>
             <div>
-                {
-                    !isClose ? (
-                        <HourlyDetail></HourlyDetail>
-                    ) : (
-                        <Fragment></Fragment>
-                    )
-                }
+                {isOpen && (<HourlyDetail></HourlyDetail>)}
             </div>
         </>
     )

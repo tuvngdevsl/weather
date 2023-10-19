@@ -3,6 +3,22 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.233);
     width: 100%;
 
+    .Disclosure--Summary {
+        color: #2b2b2b;
+        cursor: pointer;
+        padding: 10px var(--module-rail-padding) !important;
+        position: relative;
+        list-style: none;
+        box-sizing: border-box;
+        display: list-item;
+        width: 100%;
+        
+        .Arrow-up{
+            position: absolute;
+            right: 0;
+        }
+    }
+
     .ConditionsSummary {
         display: flex;
         align-items: center;

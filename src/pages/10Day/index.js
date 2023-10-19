@@ -14,10 +14,6 @@ const TenDay = () => {
       </div>
       <div className={cx('Sub-Header')}> Kể từ 16:47 EAT</div>
       <DayItem></DayItem>
-      <DayItem></DayItem>
-      <DayItem></DayItem>
-      <DayItem></DayItem>
-      <DayItem></DayItem>
     </div >
   )
 }

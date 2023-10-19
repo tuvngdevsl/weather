@@ -3,9 +3,12 @@ import styles from './Hourly.module.scss'
 import HourlyItem from '~/components/HourlyItem';
 
 
+
 const cx = classNames.bind(styles);
 
 const Hourly = () => {
+
+
     return (
         <div className={cx('DaybreakLargeScreen')}>
             <div className={cx('Header-Title')}>

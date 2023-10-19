@@ -3,13 +3,20 @@ import styles from './DayDetail.module.scss'
 import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
+import { AiOutlineUp } from "react-icons/ai";
 
 const cx = classNames.bind(styles)
 
-const DayDetail = ({ props }) => {
+const DayDetail = ({ props, onArrowUpClick}) => {
     const temperature = "17"
+    const handleArrowUpClick = () => {
+        onArrowUpClick();
+    }
     return (
         <div className={cx('Day-Detail')}>
+            <summary className={cx('Disclosure--Summary')} onClick={handleArrowUpClick}>
+                <AiOutlineUp color='#1b4de4' className={cx("Arrow-up")} />
+            </summary>
             <div className={cx('Daily-Content')}>
                 <h3><span>{props?.time} Th 3 17 |</span>  Đêm {props?.status}</h3>
                 <div className={cx('ConditionsSummary')}>

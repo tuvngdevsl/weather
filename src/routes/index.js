@@ -10,7 +10,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/monthly', component: Monthly },
     { path: '/hourly', component: Hourly },
-    { path: '/today', component: Today },
+    { path: '/today', component: Home },
     { path: '/10day', component: TenDay },
     { path: '/I/:location', component: Home },
     { path: '/weekend', component: Weekend },

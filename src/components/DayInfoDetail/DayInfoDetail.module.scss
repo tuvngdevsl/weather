@@ -1,0 +1,128 @@
+.DayInfo-Card {
+    gap: 0;
+    width: 760px;
+    background-color: white;
+
+
+    .Button-Close {
+        margin-left: auto;
+        border: none;
+        font-size: 20px;
+        width: 25px;
+        height: 25px;
+        padding-top: 1px;
+        background: none;
+        cursor: pointer;
+
+        &:active {
+            border: 1px solid blue;
+            border-radius: 100rem;
+        }
+    }
+
+    .DayInfo-Content {
+        padding: 5px var(--module-rail-padding) 15px var(--module-rail-padding);
+        display: grid;
+        grid-auto-columns: 1fr 1fr;
+        grid-column-gap: 22px;
+
+        .Conditions-Summary {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            // padding-bottom: 10px;
+            .temperature-value {
+                font-size: 4rem;
+                line-height: 1.1;
+                font-weight: 700;
+            }
+
+            .ConditionsSummary-icon svg {
+                padding-left: 10px !important;
+                width: 58px;
+                height: 48px;
+            }
+        }
+
+        .Daypart-Details {
+            grid-row: 2/3;
+
+            .Detail-Table {
+                display: flex;
+                flex-flow: row wrap;
+                box-sizing: border-box;
+                height: 100%;
+                margin: 0;
+                padding: 15px;
+                border: 1px solid #dedede;
+                border-radius: 6px;
+            }
+
+            .DetailTable-item {
+                border-top: none !important;
+                padding-top: 0;
+                margin-top: 0;
+                width: 50%;
+                min-height: 60px;
+                list-style: none;
+                display: flex;
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    color: blue;
+                    margin-right: 10px;
+                }
+
+                .DetailTable-Field {
+                    width: calc(100% - 34px);
+                    line-height: 1.2;
+
+                    .Sun-Title {
+                        display: block;
+                        font-size: 1.5rem;
+                        overflow-wrap: break-word;
+                    }
+
+                    .Sun-Time {
+                        display: block;
+                        font-weight: 700;
+                        font-size: 1.2rem;
+                    }
+
+                    .Moon-Title {
+                        display: block;
+                        font-size: 1.5rem;
+                        overflow-wrap: break-word;
+                    }
+
+                    .Moon-Time {
+                        display: block;
+                        font-weight: 700;
+                        font-size: 1.2rem;
+                    }
+
+                    .moonPhraseWrapper {
+                        display: flex;
+                        height: 22px;
+                        padding-top: 5px;
+
+                        .moonPhrase {
+                            display: block;
+                            font-weight: 600;
+                            align-self: center;
+                            font-size: 1.2rem;
+                            white-space: nowrap;
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+
+
+}

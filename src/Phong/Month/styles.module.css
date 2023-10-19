@@ -30,6 +30,7 @@
     top: 5px;
     right: 5px;
     fill: #6f7585;
+    
 }
 
 .IconCloud {
@@ -39,7 +40,6 @@
 .IconCloud svg {
     width: 50px;
     height: 30px;
-
 }
 
 .Bottom {

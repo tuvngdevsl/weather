@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     border: 1 solid black;
-    width: 100%;
+    width: 788px;
     margin: 0 auto !important;
     border-radius: var(--borderRadiusDefault);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
@@ -131,9 +131,9 @@
             }
         }
 
-        .Calender-Wrapper{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        .Calender-Wrapper {
+            display: flex;
+            flex-wrap: wrap;
             position: relative;
             margin: -5px 15px 15px;
         }

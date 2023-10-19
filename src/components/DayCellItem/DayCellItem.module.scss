@@ -14,52 +14,50 @@
     font-size: 100%;
     outline: 5px auto #1b4de4;
     cursor: pointer;
-}
 
 
-.SpanActive {
-    border: 1px solid blue;
-    border-radius: 100rem;
-    padding-top: 2px;
-    background-color: blue;
-}
+    .Span-Active {
+        border: 1px solid blue;
+        border-radius: 100rem;
+        padding-top: 2px;
+        background-color: blue;
+        color: white;
+    }
 
 
-.IconMoon {
-    display: block;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    fill: #6f7585;
-}
+    .Icon_Moon {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        fill: #6f7585;
+        width: 15px;
+        height: 15px;
+    }
 
-.IconCloud {
-    margin: 5px auto 0;
-}
+    .Icon_Cloud {
+        margin: 5px auto 0;
+    }
 
-.IconCloud svg {
-    width: 50px;
-    height: 30px;
+    .Icon_Cloud svg {
+        width: 50px;
+        height: 30px;
 
-}
+    }
 
-.Bottom {
-    padding-top: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    justify-content: left;
-}
+    .Bottom {
+        padding-top: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: left;
+    }
 
-
-.SpanActive {
-    border: 1px solid blue;
-    border-radius: 100rem;
-    padding-top: 2px;
-    background-color: blue;
-}
-
-.DivActive {
-    border: 2px solid blue;
-    border-radius: 5px;
+    .dayOfMonth {
+        display: "block";
+        width: "22px";
+        height: "23px";
+        font-weight: "300";
+        margin: "5px 0 auto"
+    }
 }
