@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext, useEffect } from 'react'
-import { currentWeather, detailWeather } from '~/services/currentWeatherService'
+import { DailyForecasts, currentWeather, detailWeather } from '~/services/currentWeatherService'
 
 const WeatherContext = createContext();
 
@@ -11,6 +11,7 @@ const WeatherProvider = ({ children }) => {
     const [weatherData, setWeatherData] = useState();
     const [currentWeatherLocation, setCurrentWeatherLocation] = useState();
     const [detailData, setDetailData] = useState();
+    const [weather1Day, setWeather1Day] = useState();
 
 
     useEffect(() => {
@@ -22,9 +23,11 @@ const WeatherProvider = ({ children }) => {
 
                     const result = await currentWeather(locationKey);
                     const detail = await detailWeather(result?.Key);
+                    const weather1Day = await DailyForecasts(result?.Key);
 
                     setCurrentWeatherLocation(result);
                     setDetailData(detail);
+                    setWeather1Day(weather1Day);
                 })
             } else {
                 console.error('Geolocation is not supported by your browser.')
@@ -41,7 +44,7 @@ const WeatherProvider = ({ children }) => {
 
 
     return (
-        <WeatherContext.Provider value={{ weatherData, updateWeatherData, currentWeatherLocation, detailData }}>
+        <WeatherContext.Provider value={{ weatherData, updateWeatherData, currentWeatherLocation, detailData, weather1Day }}>
             {children}
         </WeatherContext.Provider>
     )

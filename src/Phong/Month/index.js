@@ -67,8 +67,6 @@ const Month = () => {
         item={item}
       />
 
-
-
     </div>
 
   )

@@ -1,6 +1,6 @@
 import * as request from '~/utils/http'
 
-const OPEN_API_KEY = "iqCilp9KNRB1G8wj8gwiaRLwq88bRWM9"
+const OPEN_API_KEY = "5ESEhcfGJq75LmMhe0rMUdvWepZtRh9N"
 
 
 export const currentWeather = async (locationKey) => {
@@ -8,7 +8,8 @@ export const currentWeather = async (locationKey) => {
         const res = await request.get('/locations/v1/cities/geoposition/search', {
             params: {
                 q: locationKey,
-                apikey: OPEN_API_KEY
+                apikey: OPEN_API_KEY,
+                language: "vi-vn"
             }
         })
         return res.data;
@@ -17,11 +18,15 @@ export const currentWeather = async (locationKey) => {
     }
 }
 
+
+
 export const detailWeather = async (locationKey) => {
     try {
         const res = await request.get(`/currentconditions/v1/${locationKey}`, {
             params: {
-                apikey: OPEN_API_KEY
+                apikey: OPEN_API_KEY,
+                language: "vi-vn",
+                details: true,
             }
         })
         return res.data
@@ -29,4 +34,19 @@ export const detailWeather = async (locationKey) => {
         console.log(error);
     }
 }
+export const DailyForecasts = async (locationKey) => {
+    try {
+        const res = await request.get(`/forecasts/v1/daily/1day/${locationKey}`, {
+            params: {
+                apikey: OPEN_API_KEY,
+                language: 'vi-vn',
+                details: true
+            }
+        })
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+//1 Day of Daily Forecasts
 

@@ -9,7 +9,10 @@
     margin-left: 12px;
     z-index: 100;
 }
-
+.icon {
+    width: 60px;
+    height: 60px;
+}
 .active {
     font-weight: 700;
 }
@@ -49,7 +52,6 @@
         padding: 10px 16px;
         align-items: center;
 
-
         &-content {
             display: flex;
             flex-direction: column;
@@ -76,8 +78,8 @@
                 font-size: 25px;
                 line-height: 1;
                 font-weight: 500;
+                margin-top: 20px;
             }
-
         }
     }
 }
@@ -131,11 +133,11 @@
 
         .btn {
             display: block;
+            margin-top: 5px;
         }
 
         .btn-detail {
             background-color: var(--primaryButtonBackground);
-            border: 1px solid var(--primaryButtonBackground);
             border: none;
             border-radius: 16px;
             padding: 8px 14px;
@@ -281,14 +283,13 @@
 
     .btn {
         background-color: var(--primaryButtonBackground);
-        border: 1px solid var(--primaryButtonBackground);
         border: none;
         border-radius: 16px;
         padding: 8px 14px;
         margin-left: 20px;
         cursor: pointer;
         color: #fff;
-        font-weight: 2rem;
+        margin-top: 20px;
     }
 }
 
@@ -336,6 +337,10 @@
         color: #2b2b2b !important;
         box-sizing: border-box;
         border-top: 1px solid #dedede !important;
+        .icon-weather {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     .weather-header {
@@ -363,7 +368,6 @@
         }
     }
 }
-
 
 .card-eachHour {
     height: 289px;
@@ -424,8 +428,6 @@
         font-weight: 2rem;
     }
 }
-
-
 
 .card-eachDay {
     height: 316px;
@@ -496,4 +498,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 5px;
 }
