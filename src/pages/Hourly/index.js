@@ -1,13 +1,14 @@
 import classNames from 'classnames/bind'
 import styles from './Hourly.module.scss'
 import HourlyItem from '~/components/HourlyItem';
+import { useWeather } from "~/context/WeatherContext";
 
 
 
 const cx = classNames.bind(styles);
 
 const Hourly = () => {
-
+    const { weather12Hourly } = useWeather();;
 
     return (
         <div className={cx('DaybreakLargeScreen')}>
@@ -20,7 +21,14 @@ const Hourly = () => {
                 <div className={cx('Day-Title')}>
                     <h2>Wednesday, 18 October</h2>
                 </div>
-                <HourlyItem />
+                {
+                    weather12Hourly && (
+                        weather12Hourly.map((data, index) => (
+                            <HourlyItem key={index} data={data} index={index} />
+                        ))
+                    )
+                }
+
             </div>
         </div >
     )

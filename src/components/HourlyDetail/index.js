@@ -7,59 +7,65 @@ import { BiWind } from "react-icons/bi";
 
 const cx = classNames.bind(styles)
 
-const HourlyDetail = ({ props }) => {
-
+const HourlyDetail = ({ data }) => {
+    const changeTemperature = Math.floor((data.Temperature.Value - 32) * 5 / 9)
     return (
-        <div className={cx('Hourly-Detail')}>
+        <>
+            {data && (
+                <div>
+                    <div className={cx('Hourly-Detail')}>
 
-            <div className={cx('Hourly-Table')}>
-                <ul>
-                    <li>
-                        <FaTemperatureLow color='#1b4de4' />
-                        <div>
-                            <span>Feels Like</span>
-                            <span className={cx('active')}>{props?.humidity} 35°</span>
+                        <div className={cx('Hourly-Table')}>
+                            <ul>
+                                <li>
+                                    <FaTemperatureLow color='#1b4de4' />
+                                    <div>
+                                        <span>Feels Like</span>
+                                        <span className={cx('active')}>{data.Temperature ? `${changeTemperature} °` : "--"}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <BiWind color='#1b4de4' />
+                                    <div>
+                                        <span>Wind</span>
+                                        <span className={cx('active')}>{data.Wind.Speed.Value} {data.Wind.Speed.Unit}</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <BsDropletHalf color='#1b4de4' />
+                                    <div>
+                                        <span>Humidity</span>
+                                        <span className={cx('active')}>{data.RelativeHumidity}%</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <BsFillSunFill color='#1b4de4' />
+                                    <div>
+                                        <span>UV Index</span>
+                                        <span className={cx('active')}>{data.UVIndex} / 11</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <BsCloudsFill color='#1b4de4' />
+                                    <div>
+                                        <span>Cloud Cover</span>
+                                        <span className={cx('active')}>{data.CloudCover}%</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <GiHeavyRain color='#1b4de4' />
+                                    <div>
+                                        <span>Rain Amount</span>
+                                        <span className={cx('active')}>{data.RainProbability} cm </span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                    <li>
-                        <BiWind color='#1b4de4' />
-                        <div>
-                            <span>Wind</span>
-                            <span className={cx('active')}>{props?.UV_LeveL} N 5 km/h</span>
-                        </div>
-                    </li>
-                    <li>
-                        <BsDropletHalf color='#1b4de4' />
-                        <div>
-                            <span>Humidity</span>
-                            <span className={cx('active')}>{props?.rise}51%</span>
-                        </div>
-                    </li>
-                    <li>
-                        <BsFillSunFill color='#1b4de4' />
-                        <div>
-                            <span>UV Index</span>
-                            <span className={cx('active')}>{props?.set} 8 of 11 </span>
-                        </div>
-                    </li>
-                    <li>
-                        <BsCloudsFill color='#1b4de4' />
-                        <div>
-                            <span>Cloud Cover</span>
-                            <span className={cx('active')}>{props?.rise} 68%</span>
-                        </div>
-                    </li>
-                    <li>
-                        <GiHeavyRain color='#1b4de4' />
-                        <div>
-                            <span>Rain Amount</span>
-                            <span className={cx('active')}>{props?.set} 0 cm </span>
-                        </div>
-                    </li>
+                    </div>
+                </div>
+            )}
+        </>
 
-                </ul>
-            </div>
-        </div>
     )
 }
 

@@ -22,7 +22,7 @@ import { TiWeatherCloudy } from 'react-icons/ti'
 
 
 const cx = classNames.bind(styles);
-
+// const iconUrl = `https://developer.accuweather.com/sites/default/files/${weatherIconNumber < 10 ? '0' + weatherIconNumber : weatherIconNumber}-s.png`; 
 const Home = () => {
   const { currentWeatherLocation, detailData, weather1Day } = useWeather();
 
@@ -44,7 +44,7 @@ const Home = () => {
                       <span className={cx('day')}> Ngày {Math.floor((weather1Day.DailyForecasts[0].Temperature.Maximum.Value - 32) * 5 / 9)}°. Đêm {Math.floor((weather1Day.DailyForecasts[0].Temperature.Minimum.Value - 32) * 5 / 9)}°</span>
                     </div>
                     <div className={cx('card-body-icon')}>
-                      <img src={cloud_icon} alt='icon' className={cx('icon')} />
+                    <img src={`https://developer.accuweather.com/sites/default/files/${detailData[0].WeatherIcon < 10 ? '0' + detailData[0].WeatherIcon : detailData[0].WeatherIcon}-s.png`} alt={detailData[0].WeatherText} className={cx('img-weather')}></img>
                     </div>
                   </div>
                 </div>

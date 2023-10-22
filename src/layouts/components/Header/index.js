@@ -8,13 +8,7 @@ import { faCaretDown, faEarthAmericas, faCaretUp } from '@fortawesome/free-solid
 import Search from '../Search'
 import { useWeather } from '~/context/WeatherContext';
 import { FlapperSpinner } from 'react-spinners-kit';
-import cloud_icon from '~/components/Assets/cloud.png';
-import drizzle_icon from '~/components/Assets/drizzle.png';
-import humidity_icon from '~/components/Assets/humidity.png';
-import rain_icon from '~/components/Assets/rain.png';
-import snow_icon from '~/components/Assets/snow.png';
-import clear_icon from '~/components/Assets/clear.png'
-import wind_icon from '~/components/Assets/clear.png';
+
 
 const cx = classNames.bind(styles)
 
@@ -26,7 +20,7 @@ const Header = () => {
         const newLocation = e.target.value;
         setLocation(newLocation);
     }
-
+   
     return (
         <>
             <div>
@@ -121,8 +115,8 @@ const Header = () => {
                                 <div className={cx('location-temp')}>
                                     {
                                         detailData && detailData.length > 0 ? (
-                                            <div className={cx('weather-left')}>
-                                                <img src={clear_icon} alt='icon' className={cx('img-weather')}></img>
+                                            <div className={cx('weather-left')}> 
+                                                <img src={`https://developer.accuweather.com/sites/default/files/${detailData[0].WeatherIcon < 10 ? '0' + detailData[0].WeatherIcon : detailData[0].WeatherIcon}-s.png`} alt={detailData[0].WeatherText} className={cx('img-weather')}></img>
                                                 <span className={cx('weather-detail')}>
                                                     {Math.ceil(detailData[0].Temperature.Metric.Value)}°C {currentWeatherLocation?.LocalizedName}, {currentWeatherLocation?.Country?.LocalizedName}
                                                 </span>

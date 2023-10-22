@@ -34,6 +34,7 @@ export const detailWeather = async (locationKey) => {
         console.log(error);
     }
 }
+//1 Day of Daily Forecasts
 export const DailyForecasts = async (locationKey) => {
     try {
         const res = await request.get(`/forecasts/v1/daily/1day/${locationKey}`, {
@@ -48,5 +49,21 @@ export const DailyForecasts = async (locationKey) => {
         console.log(error);
     }
 }
-//1 Day of Daily Forecasts
+
+// 12 Hours of Hourly Forecasts
+export const get12HourlyForecasts = async (locationKey) => {
+    try {
+        const res = await request.get(`forecasts/v1/hourly/12hour/${locationKey}`, {
+            params: {
+                apikey: OPEN_API_KEY,
+                language: 'vi-vn',
+                details: true
+            }       
+        })
+      
+        return res.data
+    } catch (error) {
+        console.log(error);
+    }
+}
 

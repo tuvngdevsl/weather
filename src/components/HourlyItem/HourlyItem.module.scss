@@ -10,7 +10,7 @@
         display: flex;
         padding: 10px 20px;
         align-items: center;
-        font-weight: 100;
+        font-weight: 400;
     }
 
     .DaypartDetails h5 {
@@ -18,11 +18,13 @@
         width: 10%;
         display: flex;
         align-items: center;
+        font-size: 1.75rem;
     }
 
     .DetailsSummary {
         display: flex;
         width: 100%;
+        justify-content: space-between;
     }
 
     .temparature {
@@ -37,6 +39,7 @@
     }
 
     .WeatherItem {
+        font-weight: 400;
         display: flex;
         align-items: center;
         gap: 10px;
