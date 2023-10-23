@@ -52,6 +52,13 @@
 
     }
 
+    .Daily{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
     //Daily-Table
 
     .Daily-Table {
@@ -101,6 +108,8 @@
 
     }
 
-
+    .Daily-Item{
+        width: 800px;
+    }
 
 }

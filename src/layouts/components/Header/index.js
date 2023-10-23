@@ -118,7 +118,7 @@ const Header = () => {
                                             <div className={cx('weather-left')}> 
                                                 <img src={`https://developer.accuweather.com/sites/default/files/${detailData[0].WeatherIcon < 10 ? '0' + detailData[0].WeatherIcon : detailData[0].WeatherIcon}-s.png`} alt={detailData[0].WeatherText} className={cx('img-weather')}></img>
                                                 <span className={cx('weather-detail')}>
-                                                    {Math.ceil(detailData[0].Temperature.Metric.Value)}°C {currentWeatherLocation?.LocalizedName}, {currentWeatherLocation?.Country?.LocalizedName}
+                                                    {Math.floor(detailData[0].Temperature.Metric.Value)}°C {currentWeatherLocation?.LocalizedName}, {currentWeatherLocation?.Country?.LocalizedName}
                                                 </span>
                                             </div>
                                         ) : <FlapperSpinner loading={true} color="#000" size={25} />

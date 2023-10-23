@@ -4,74 +4,150 @@ import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
 import { AiOutlineUp } from "react-icons/ai";
+import moment from "moment";
 
 const cx = classNames.bind(styles)
 
-const DayDetail = ({ props, onArrowUpClick}) => {
+const DayDetail = ({ data, onArrowUpClick }) => {
     const temperature = "17"
+
+    const effectiveDate = data.Date;
+    const date = moment(effectiveDate);
+    const day = date.format('dd DD');
+
     const handleArrowUpClick = () => {
         onArrowUpClick();
     }
     return (
-        <div className={cx('Day-Detail')}>
-            <summary className={cx('Disclosure--Summary')} onClick={handleArrowUpClick}>
-                <AiOutlineUp color='#1b4de4' className={cx("Arrow-up")} />
-            </summary>
-            <div className={cx('Daily-Content')}>
-                <h3><span>{props?.time} Th 3 17 |</span>  Đêm {props?.status}</h3>
-                <div className={cx('ConditionsSummary')}>
-                    <div className={cx('ConditionsSummary-title')}>
-                        <span>{temperature ? `${temperature} °` : "--"}</span>
-                        <BsCloudsFill color='#e3e3e3' className={cx('ConditionsSummary-icon')} />
+        <>
+            {
+                data && (
+                    <div className={cx('Day-Detail')}>
+                        <div className={cx('Daily')}>
+                            <div className={cx('Day-Detail')}>
+                                <summary className={cx('Disclosure--Summary')} onClick={handleArrowUpClick}>
+                                    <AiOutlineUp color='#1b4de4' className={cx("Arrow-up")} />
+                                </summary>
+                                <div className={cx('Daily')}>
+                                    <div className={cx('Daily-Item')}>
+                                        <div className={cx('Daily-Content')}>
+                                            <h3><span>{day}  |</span>  Ngày</h3>
+                                            <div className={cx('ConditionsSummary')}>
+                                                <div className={cx('ConditionsSummary-title')}>
+                                                    <span>{data.Temperature.Maximum.Value ? `${Math.floor((data.Temperature.Maximum.Value - 32) * 5 / 9)} °` : "--"}</span>
+                                                    <img src={`https://developer.accuweather.com/sites/default/files/${data.Day.Icon < 10 ? '0' + data.Day.Icon : data.Day.Icon}-s.png`} alt={data.Day.LongPhrase} />
+                                                </div>
+                                                <div className={cx('ConditionsSummary-title-right')}>
+                                                    <div>
+                                                        <FaCloudShowersHeavy color='#1b4de4' />
+                                                        <span>{data.Day.Rain.Value}%</span>
+                                                    </div>
+                                                    <div>
+                                                        <BiWind color='#1b4de4' />
+                                                        <span>{data.Day.Wind.Speed.Value}
+                                                            {data.Day.Wind.Speed.Unit}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>{data.Day.IconPhrase} </p>
+                                        </div>
+                                        <div className={cx('Daily-Table')}>
+                                            <ul>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Độ ẩm</span>
+                                                        <span>{data?.humidity} 83%</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Chỉ số uv</span>
+                                                        <span>{data?.UV_LeveL} 0 / 11</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Bình minh</span>
+                                                        <span>{data?.rise} 8:07</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Hoàng hôn</span>
+                                                        <span>{data?.set} 20:16</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className={cx('Daily-Item')}>
+                                        <div className={cx('Daily-Content')}>
+                                            <h3><span>{day} |</span>  Đêm {data?.status}</h3>
+                                            <div className={cx('ConditionsSummary')}>
+                                                <div className={cx('ConditionsSummary-title')}>
+                                                    <span>{data.Temperature.Minimum.Value ? `${Math.floor((data.Temperature.Minimum.Value - 32) * 5 / 9)} °` : "--"}</span>
+                                                    <img src={`https://developer.accuweather.com/sites/default/files/${data.Night.Icon < 10 ? '0' + data.Night.Icon : data.Night.Icon}-s.png`} alt={data.Night.LongPhrase} />
+                                                </div>
+                                                <div className={cx('ConditionsSummary-title-right')}>
+                                                    <div>
+                                                        <FaCloudShowersHeavy color='#1b4de4' />
+                                                        <span>{data.Night.Rain.Value}%</span>
+                                                    </div>
+                                                    <div>
+                                                        <BiWind color='#1b4de4' />
+                                                        <span>{data.Night.Wind.Speed.Value}
+                                                            {data.Night.Wind.Speed.Unit}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                {data.Night.IconPhrase}
+                                            </p>
+                                        </div>
+                                        <div className={cx('Daily-Table')}>
+                                            <ul>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Độ ẩm</span>
+                                                        <span>{data?.humidity} 83%</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Chỉ số uv</span>
+                                                        <span>{data?.UV_LeveL} 0 / 11</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Bình minh</span>
+                                                        <span>{data?.rise} 8:07</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <BiWind color='#1b4de4' />
+                                                    <div>
+                                                        <span>Hoàng hôn</span>
+                                                        <span>{data?.set} 20:16</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={cx('ConditionsSummary-title-right')}>
-                        <div>
-                            <FaCloudShowersHeavy color='#1b4de4' />
-                            <span>{props?.rain} 44%</span>
-                        </div>
-                        <div>
-                            <BiWind color='#1b4de4' />
-                            <span>{props?.wind} ĐB 12km/giờ</span>
-                        </div>
-                    </div>
-                </div>
-                <p>{props?.summary}
-                    Phần nào có mây, có thể có giông bão. Thấp 17 độ C. Gió ĐB ở tốc độ 10 đến 15 km/giờ. Khả năng có mưa 40%.
-                </p>
-            </div>
-            <div className={cx('Daily-Table')}>
-                <ul>
-                    <li>
-                        <BiWind color='#1b4de4' />
-                        <div>
-                            <span>Độ ẩm</span>
-                            <span>{props?.humidity} 83%</span>
-                        </div>
-                    </li>
-                    <li>
-                        <BiWind color='#1b4de4' />
-                        <div>
-                            <span>Chỉ số uv</span>
-                            <span>{props?.UV_LeveL} 0 / 11</span>
-                        </div>
-                    </li>
-                    <li>
-                        <BiWind color='#1b4de4' />
-                        <div>
-                            <span>Bình minh</span>
-                            <span>{props?.rise} 8:07</span>
-                        </div>
-                    </li>
-                    <li>
-                        <BiWind color='#1b4de4' />
-                        <div>
-                            <span>Hoàng hôn</span>
-                            <span>{props?.set} 20:16</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                )
+            }
+        </>
     )
 }
 

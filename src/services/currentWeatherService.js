@@ -35,9 +35,25 @@ export const detailWeather = async (locationKey) => {
     }
 }
 //1 Day of Daily Forecasts
-export const DailyForecasts = async (locationKey) => {
+export const dailyForecasts = async (locationKey) => {
     try {
         const res = await request.get(`/forecasts/v1/daily/1day/${locationKey}`, {
+            params: {
+                apikey: OPEN_API_KEY,
+                language: 'vi-vn',
+                details: true
+            }
+        })
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//5 Day of Daily Forecasts
+export const fiveDay = async (locationKey) => {
+    try {
+        const res = await request.get(`/forecasts/v1/daily/5day/${locationKey}`, {
             params: {
                 apikey: OPEN_API_KEY,
                 language: 'vi-vn',
