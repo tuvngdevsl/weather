@@ -4,9 +4,17 @@ import Logo from "./logo.png";
 import Logo1 from "./Logo/Georgia.png";
 import Logo2 from "./Logo/cloud.png";
 import "font-awesome/css/font-awesome.min.css";
-import MyModule from "./my-module.js";
+
 
 const Footer = () => {
+    // Hàm để cuộn lên đầu trang
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+  
   return (
     <footer>
       <div className="footer-content">
@@ -26,11 +34,15 @@ const Footer = () => {
               <i className="fab fa-youtube"></i>
             </a>
           </div>
+
+
           <div className="scroll-to-top">
-            <button id="scrollToTopButton">
+            <button id="scrollToTopButton" onClick={scrollToTop}>
               <i className="fas fa-arrow-up"></i>
             </button>
           </div>
+
+
           <div className="right-section">
             <div className="image-container">
               <img src={Logo} alt="Logo" style={{ height: "50px" }} />
@@ -114,6 +126,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+    
     </footer>
   );
 };
