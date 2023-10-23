@@ -1,26 +1,31 @@
 /* Footer.module.css */
 
-footer{
+footer {
   margin-top: 800px;
+
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   background-color: #ffffff;
-  
+  height: 545px;
+
+
 }
 
 .left-section {
   display: flex;
-margin-left: 50px;
+  margin-left: 50px;
 
 }
-.connect{
-  margin-top: 20px;
+
+.connect {
+  margin-top: 40px;
 }
+
 .right-section {
-margin-left: 500px;
+  margin-left: 500px;
 }
 
 .connect {
@@ -43,21 +48,28 @@ margin-left: 500px;
 
 /* Đặt kích thước cho biểu tượng trong phần social-icons */
 .social-icons i {
-  font-size: 20px; /* Đặt kích thước biểu tượng thành 20px */
+  font-size: 20px;
+  /* Đặt kích thước biểu tượng thành 20px */
 }
 
 /* Tạo vòng tròn bên ngoài biểu tượng */
 .social-icons a {
   display: inline-block;
-  width: 30px; /* Đặt kích thước hộp chứa */
-  height: 30px; /* Đặt kích thước hộp chứa */
-  border-radius: 50%; /* Đặt góc làm tròn cho hộp chứa */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   text-align: center;
-  line-height: 30px;
-  background-color: #e8e4e4; /* Đặt màu nền cho vòng tròn */
-  margin: 5px; /* Khoảng cách giữa các biểu tượng */
-  color: white; /* Màu chữ */
+  line-height: 50px;
+  background-color: #e8e4e4;
+  margin: 5px;
+  color: white;
   text-decoration: none;
+
+}
+
+svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Đặt màu nền khi di chuột vào biểu tượng */
@@ -69,42 +81,55 @@ margin-left: 500px;
 .logo {
   width: 40px;
   height: 40px;
-  margin-left: 10px; /* Khoảng cách giữa logo và phần right-section */
+  margin-left: 10px;
+  /* Khoảng cách giữa logo và phần right-section */
 }
 
 /* Sắp xếp phần right-section */
 .right-section {
   display: inline-block;
   margin-right: 20px;
-  margin-bottom: 10px; /* Khoảng cách giữa các mục */
+  margin-bottom: 10px;
+  /* Khoảng cách giữa các mục */
 }
 
 .contact-info {
-  display: flex; /* Sử dụng flexbox để xếp các mục trên 1 hàng */
-  justify-content: center; /* Căn giữa theo chiều ngang */
+  display: flex;
+  /* Sử dụng flexbox để xếp các mục trên 1 hàng */
+  justify-content: center;
+  /* Căn giữa theo chiều ngang */
   margin: 20px 0;
-  font-size: 14px; /* Khoảng cách ở cả hai phía trên và dưới */
-  align-items: center; 
+  font-size: 14px;
+  /* Khoảng cách ở cả hai phía trên và dưới */
+  align-items: center;
 }
 
 /* Sắp xếp các phần tử trong contact-info */
-.contact-info > div {
-  margin: 0 20px; /* Khoảng cách giữa các phần tử bên trong contact-info */
+.contact-info>div {
+  margin: 0 20px;
+  /* Khoảng cách giữa các phần tử bên trong contact-info */
 }
+
 /* Sắp xếp các mục trong contact-info */
 .contact-info.horizontal {
-  display: flex; /* Sử dụng flexbox để xếp các mục trên 1 hàng */
-  justify-content: center; /* Căn giữa theo chiều ngang */
-  align-items: center; /* Căn giữa theo chiều dọc */
-  margin: 10px 0; /* Khoảng cách ở cả hai phía trên và dưới */
+  display: flex;
+  /* Sử dụng flexbox để xếp các mục trên 1 hàng */
+  justify-content: center;
+  /* Căn giữa theo chiều ngang */
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  margin: 10px 0;
+  /* Khoảng cách ở cả hai phía trên và dưới */
 }
 
 /* Sắp xếp các phần tử trong contact-info */
 .contact-info.horizontal .contact-item {
-  margin: 0 10px; /* Khoảng cách giữa các phần tử bên trong contact-info */
+  margin: 0 10px;
+  /* Khoảng cách giữa các phần tử bên trong contact-info */
   display: flex;
   align-items: center;
-  font-weight: bold; /* In đậm chữ */
+  font-weight: bold;
+  /* In đậm chữ */
   font-size: 15px;
 }
 
@@ -119,23 +144,29 @@ margin-left: 500px;
   text-decoration: none;
   color: #333;
 }
+
 .contact-info.horizontal .contact-item.centered-text {
-  max-width: 600px; /* Đặt chiều rộng tối đa là 200px */
-  word-wrap: break-word; /* Cho phép chèn ngắt dòng nếu nội dung quá dài */
+  max-width: 600px;
+  /* Đặt chiều rộng tối đa là 200px */
+  word-wrap: break-word;
+  /* Cho phép chèn ngắt dòng nếu nội dung quá dài */
   font-weight: normal;
   font-size: 15px;
   line-height: 1.4;
 }
+
 /* Căn giữa dòng cuối cùng trong phần nội dung dài */
 .contact-info.horizontal .contact-item.centered-text:last-child {
-  text-align: center; /* Căn giữa theo chiều ngang */
+  text-align: center;
+  /* Căn giữa theo chiều ngang */
 }
 
 /* Căn giữa phần nội dung trong new-contact-info horizontal */
-.new-contact-info.horizontal .new-contact-item:first-child{
+.new-contact-info.horizontal .new-contact-item:first-child {
   font-weight: bold;
   margin-top: 20px;
 }
+
 .new-contact-info.horizontal .new-contact-item:first-child,
 .new-contact-info.horizontal .new-contact-item:nth-child(2),
 .new-contact-info.horizontal .new-contact-item:nth-child(3) {
@@ -143,10 +174,12 @@ margin-left: 500px;
   justify-content: center;
   align-items: center;
 }
+
 .new-contact-info.horizontal .new-contact-item:nth-child(2),
-.new-contact-info.horizontal .new-contact-item:nth-child(3){
+.new-contact-info.horizontal .new-contact-item:nth-child(3) {
   font-size: 13px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
 /* Các quy tắc CSS cho right-section */

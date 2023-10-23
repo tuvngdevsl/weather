@@ -1,6 +1,5 @@
 import classNames from "classnames/bind"
 import styles from './DayDetail.module.scss'
-import { BsCloudsFill } from "react-icons/bs";
 import { FaCloudShowersHeavy } from "react-icons/fa";
 import { BiWind } from "react-icons/bi";
 import { AiOutlineUp } from "react-icons/ai";
@@ -9,8 +8,6 @@ import moment from "moment";
 const cx = classNames.bind(styles)
 
 const DayDetail = ({ data, onArrowUpClick }) => {
-    const temperature = "17"
-
     const effectiveDate = data.Date;
     const date = moment(effectiveDate);
     const day = date.format('dd DD');
