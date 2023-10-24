@@ -22,7 +22,7 @@ const HourlyItem = ({ data }) => {
     const changeTemperature = Math.floor((data.Temperature.Value - 32) * 5 / 9)
 
   
-
+    console.log(data);
     const handleToggle = () => {
         setIsOpen(prevIsOpen => !prevIsOpen);
     }
@@ -42,7 +42,7 @@ const HourlyItem = ({ data }) => {
                                         </span>
                                     </div>
                                     <div className={cx('WeatherItem')} >
-                                        <BsCloudsFill color='#e3e3e3' className={cx("icon")} />
+                                        <img src={`https://developer.accuweather.com/sites/default/files/${data.WeatherIcon < 10 ? '0' + data.WeatherIcon : data.WeatherIcon}-s.png`} alt={data.IconPhrase} />
                                         <span>
                                             {data.IconPhrase}
                                         </span>

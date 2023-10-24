@@ -18,10 +18,9 @@ import 'moment/locale/vi';
 
 
 const cx = classNames.bind(styles);
-// const iconUrl = `https://developer.accuweather.com/sites/default/files/${weatherIconNumber < 10 ? '0' + weatherIconNumber : weatherIconNumber}-s.png`; 
 const Home = () => {
   const { currentWeatherLocation, detailData, weather1Day, weather12Hourly, weather5Day } = useWeather();
-
+  
   return (
     <div >
       {
@@ -31,7 +30,7 @@ const Home = () => {
               <div>
                 <div className={cx('card')}>
                   <div className={cx('card-header')}>
-                    <h3> {currentWeatherLocation?.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {detailData[0].LocalObservationDateTime}</span>
+                    <h3> {currentWeatherLocation.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {(detailData[0].LocalObservationDateTime).substring(11,19)}</span>
                   </div>
                   <div className={cx('card-body')}>
                     <div className={cx('card-body-content')}>
@@ -182,7 +181,7 @@ const Home = () => {
                       </Card.Body>
                     </Card>
                   </CardGroup>
-                  <Button className={cx('btn')}> 48 giờ tới</Button>
+                  <Button className={cx('btn')}> 12 giờ tới</Button>
                 </div>
 
                 <div className={cx('card-eachDay')}>
@@ -258,15 +257,14 @@ const Home = () => {
                 <div className={cx('aside-body')}>
                   <div>
                     <svg width={60} height={60} >
-                      <circle r={27.5} cx={30} cy={30} transform="rotate(90 30 30)" style={{ strokeWidth: 5 }} className={cx('circle1')} />
-                      <circle r={27.5} cx={30} cy={30} transform="rotate(90 30 30)" style={{ strokeWidth: 5, strokeDasharray: '28.797932657906433 172.78759594743863', stroke: '#00E838' }} className={cx('circle2')} />
+                      
                       {/* <text x="50%" y="55%" >33</text> */}
-                      <text x="50%" y="55%" dominantBaseline="middle" alignmentBaseline="middle" textAnchor="middle" className={cx('circle-text')} data-testid="DonutChartValue">33</text>
+                      <text x="50%" y="55%" dominantBaseline="middle" alignmentBaseline="middle" textAnchor="middle" className={cx('circle-text')} data-testid="DonutChartValue">{weather1Day.DailyForecasts[0].AirAndPollen[0].CategoryValue}</text>
                     </svg>
                   </div>
                   <div className="">
                     <div className={cx('right-content')}>
-                      <h4 className={cx('right-content-header')} >Tốt</h4>
+                      <h4 className={cx('right-content-header')} >{weather1Day.DailyForecasts[0].AirAndPollen[0].Category}</h4>
                       <p style={{ paddingBottom: '15px' }}>
                         Chất lượng không khí được coi là đạt yêu cầu và ô nhiễm không khí gây ra ít rủi ro hoặc không gây ra rủi ro.
                       </p>

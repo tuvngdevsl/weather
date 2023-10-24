@@ -2,10 +2,13 @@ import classNames from "classnames/bind"
 import styles from './Monthly.module.scss'
 import { useState } from "react";
 import DayCellItem from "~/components/DayCellItem";
+import { useWeather } from "~/context/WeatherContext";
+import generateWeatherData from "~/mock/WeatherData";
 
 const cx = classNames.bind(styles);
 
 const MonthSelect = () => {
+
   const [selectedMonth, setSelectedMonth] = useState("");
 
   const handleSelectChange = (e) => {
@@ -54,55 +57,55 @@ const YearSelect = () => {
 };
 
 const Monthly = () => {
+  const { weather12Hourly, currentWeatherLocation, detailData } = useWeather();
   const dayOfWeek = [
     'Chủ Nhật', 'T.2', 'T.3', 'T.4', 'T.5', 'T.6', 'T.7'
   ];
 
+  const weatherData = generateWeatherData();
+
   return (
-    <div className={cx('DaybreakLargeScreen')}>
-      <div className={cx('Header-Title')}>
-        <h2><strong>Monthly Weather</strong> <span className={cx('Sub-Title')}>- Hanoi, Vietnam</span></h2>
-      </div>
-      <div className={cx('Sub-Header')}> As of 12:03 EAT</div>
+    <>
+      {
+        weather12Hourly && currentWeatherLocation && detailData && (
+          <div className={cx('DaybreakLargeScreen')}>
+            <div className={cx('Header-Title')}>
+              <h2><strong>Monthly Weather</strong> <span className={cx('Sub-Title')}>- {currentWeatherLocation.LocalizedName}</span></h2>
+            </div>
+            <div className={cx('Sub-Header')}> Kể từ {(detailData[0].LocalObservationDateTime).substring(11, 19)}</div>
 
-      <div className={cx('Nav-Content')}>
-        <nav className={cx('Nav-Header')}>
-          <button className={cx('Button-Month')} > {"<"}Tháng 9</button>
-          <div className={cx('Select-Month')}>
-            <MonthSelect />
-            <YearSelect />
-            <button>Xem</button>
-          </div>
-          <button className={cx('Button-Month')} >Tháng 11 {">"}</button>
-        </nav>
-      </div>
+            <div className={cx('Nav-Content')}>
+              <nav className={cx('Nav-Header')}>
+                <button className={cx('Button-Month')} > {"<"}Tháng 9</button>
+                <div className={cx('Select-Month')}>
+                  <MonthSelect />
+                  <YearSelect />
+                  <button>Xem</button>
+                </div>
+                <button className={cx('Button-Month')} >Tháng 11 {">"}</button>
+              </nav>
+            </div>
 
-      <div className={cx('Card-Content')}>
-        <dl className={cx('DayOfWeek')}>
-          {
-            dayOfWeek.map((day, index) => (
-              <dt key={index}>{day}</dt>
-            ))
-          }
-        </dl>
-        <div className={cx('Calender-Wrapper')}>
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
-          <DayCellItem />
+            <div className={cx('Card-Content')}>
+              <dl className={cx('DayOfWeek')}>
+                {
+                  dayOfWeek.map((day, index) => (
+                    <dt key={index}>{day}</dt>
+                  ))
+                }
+              </dl>
+              <div className={cx('Calender-Wrapper')}>
+                {weatherData.map((dayData, index) => (
+                  <DayCellItem key={index} data={dayData} />
+                ))}
+              </div>
+            </div>
 
-        </div>
-      </div>
+          </div >
+        )
+      }
+    </>
 
-    </div >
 
 
   )

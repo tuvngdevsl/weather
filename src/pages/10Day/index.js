@@ -8,16 +8,17 @@ const cx = classNames.bind(styles)
 
 
 const TenDay = () => {
-  const { weather5Day } = useWeather();;
+  const { weather5Day, currentWeatherLocation, detailData } = useWeather();;
+  
   return (
     <>
       {
-        weather5Day && (
+        weather5Day && currentWeatherLocation && detailData && (
           <div className={cx('DaybreakLargeScreen')}>
             <div className={cx('Header-Title')}>
-              <h1><strong>Thời tiết 10 ngày</strong> <span>- Web, Or</span></h1>
+              <h1><strong>Thời tiết 5 ngày</strong> <span>- {currentWeatherLocation.LocalizedName}</span></h1>
             </div>
-            <div className={cx('Sub-Header')}> Kể từ 16:47 EAT</div>
+            <div className={cx('Sub-Header')}> Kể từ {(detailData[0].LocalObservationDateTime).substring(11,19)}</div>
             {weather5Day.DailyForecasts.map((data, index) => (
               <DayItem data={data} key={index} />
             ))}

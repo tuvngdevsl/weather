@@ -29,7 +29,6 @@ const DisFull = (props) => {
                         temperatureNight={item.night.temperature}
                     />
                     <div key={index}>
-
                         {props.checkActive && index === fixIndex && (
                             <div className={styles.DisFullCustom}>
                                 <div className={styles.DisFullButton}><button onClick={(() => props.setCheckActive(index))}> X</button></div>

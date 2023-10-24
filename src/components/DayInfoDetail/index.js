@@ -11,10 +11,10 @@ import { useState } from 'react';
 const cx = classNames.bind(styles)
 
 
-const DayInfoDetail = ({ props }) => {
+const DayInfoDetail = ({ data }) => {
     const [isActive, setIsActive] = useState(true);
 
-
+    console.log(data?.index);
     const handleActive = () => {
         setIsActive(!isActive);
     }
@@ -32,14 +32,13 @@ const DayInfoDetail = ({ props }) => {
                         <div className={cx('DayInfo-Content')}>
                             <div className={cx('Daily-Content')}>
                                 <h3>
-                                    <span>{props?.time} Th 2 02| </span>
-                                    <span>{props?.status} Ngày </span>
+                                    <span>{data?.time} Th 2 02| </span>
+                                    <span> Ngày </span>
                                 </h3>
                                 <div className={cx('Conditions-Summary')}>
                                     <div className={cx('temperature-value')}>
                                         <span >
-                                            {/* {props?.temperature ? `${props?.temperature} °` : "--"} */}
-                                            27°
+                                            {data?.day.temperature ? `${data?.day.temperature} °` : "--"}
                                         </span>
                                     </div>
                                     <div className={cx('ConditionsSummary-icon')}>
@@ -54,14 +53,14 @@ const DayInfoDetail = ({ props }) => {
                                         <BsSunrise className={cx('icon')} />
                                         <div className={cx('DetailTable-Field')}>
                                             <span className={cx('Sun-Title')}> Bình minh </span>
-                                            <span className={cx('Sun-Time')}> 6:14 </span>
+                                            <span className={cx('Sun-Time')}> {data.day.sun_Rise} </span>
                                         </div>
                                     </li>
                                     <li className={cx('DetailTable-item')}>
                                         <BsSunset className={cx('icon')} />
                                         <div className={cx('DetailTable-Field')}>
                                             <span className={cx('Sun-Title')}> Hoàng hôn </span>
-                                            <span className={cx('Sun-Time')}> 18:14 </span>
+                                            <span className={cx('Sun-Time')}> {data.day.sun_Set} </span>
                                         </div>
                                     </li>
                                 </ul>
@@ -70,14 +69,13 @@ const DayInfoDetail = ({ props }) => {
 
                             <div className={cx('Daily-Content')}>
                                 <h3>
-                                    <span>{props?.time} Th 2 02| </span>
-                                    <span>{props?.status} Đêm </span>
+                                    <span>{data?.time} Th 2 02| </span>
+                                    <span>{data?.status} Đêm </span>
                                 </h3>
                                 <div className={cx('Conditions-Summary')}>
                                     <div className={cx('temperature-value')}>
                                         <span >
-                                            {/* {props?.temperature ? `${props?.temperature} °` : "--"} */}
-                                            27°
+                                            {data?.night.temperature ? `${data?.night.temperature} °` : "--"}
                                         </span>
                                     </div>
                                     <div className={cx('ConditionsSummary-icon')}>
@@ -93,7 +91,7 @@ const DayInfoDetail = ({ props }) => {
                                         <RiMoonLine className={cx('icon')} />
                                         <div className={cx('DetailTable-Field')}>
                                             <span className={cx('Moon-Title')}> Mặt trăng mọc </span>
-                                            <span className={cx('Moon-Time')}> 18:43 </span>
+                                            <span className={cx('Moon-Time')}> {data.night.moon_Rise} </span>
                                             <div className={cx('moonPhraseWrapper')}>
                                                 <WiMoonAltWaxingCrescent1 className={cx('ConditionsSummary-icon')} />
                                                 <span className={cx('moonPhrase')}>Trăng lưỡi liềm già</span>
@@ -104,7 +102,7 @@ const DayInfoDetail = ({ props }) => {
                                         <RiMoonCloudyFill className={cx('icon')} />
                                         <div className={cx('DetailTable-Field')}>
                                             <span className={cx('Moon-Title')}> Mặt trăng lặn </span>
-                                            <span className={cx('Moon-Time')}> 07:00 </span>
+                                            <span className={cx('Moon-Time')}> {data.night.moon_Set}  </span>
                                         </div>
                                     </li>
                                 </ul>
