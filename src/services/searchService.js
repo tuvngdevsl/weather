@@ -5,7 +5,7 @@ import * as request from '../utils/http';
 // Search: https://dataservice.accuweather.com/locations/v1/cities/search?q=${query}&apikey=${apiKey}
 
 // const OPEN_API_KEY = "aa758be0dbb67363e6c09ff2cbd74ca9"  OpenWeather
-const ACCUWEATHER_API_KEY = '5ESEhcfGJq75LmMhe0rMUdvWepZtRh9N'
+const ACCUWEATHER_API_KEY = 'TGNnfAceatTI3LI3kSDpaUetq1xvVUV2'
 
 
 
