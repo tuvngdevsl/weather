@@ -7,19 +7,25 @@ import { useState } from 'react'
 const cx = classNames.bind(styles)
 
 const DayCellItem = ({ data }) => {
-    const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(false);
+    
     const handleDisplayDayDetail = () => {
         setIsActive(!isActive);
+        isActive ? (
+            data.active = false
+        ) : (
+            data.active = true
+        )
     }
 
     return (
         <div>
-            <button className={cx('Day-Cell')} onClick={handleDisplayDayDetail}>
+            <button onClick={handleDisplayDayDetail} className={data.active ? `${cx('Day-Cell-Active')}` : `${cx('Day-Cell')}`}>
                 <div>
                     <WiMoonAltWaningGibbous1 className={cx('Icon_Moon')} />
                 </div>
-                <span className={data?.active ? `${cx('Span-Active')}` : `${cx('Span-Active')}`} style={{ display: "block", width: "22px", height: "23px", fontWeight: "300", margin: "5px 0 auto" }}>
-                    {data?.index}
+                <span className={data.active ? `${cx('Span-Active')}` : `${cx('Span')}`} >
+                    {data.index}
                 </span>
 
                 <div className={cx('Icon_Cloud')} >

@@ -18,7 +18,7 @@ const MonthSelect = () => {
   return (
     <div className={cx('Month-Option')}>
       <select value={selectedMonth} onChange={handleSelectChange}>
-        <option value="">Tháng</option>
+        <option value="">Tháng 10</option>
         <option value="1">Tháng 1</option>
         <option value="2">Tháng 2</option>
         <option value="3">Tháng 3</option>
@@ -28,7 +28,6 @@ const MonthSelect = () => {
         <option value="7">Tháng 7</option>
         <option value="8">Tháng 8</option>
         <option value="9">Tháng 9</option>
-        <option value="10">Tháng 10</option>
         <option value="11">Tháng 11</option>
         <option value="12">Tháng 12</option>
 
@@ -47,10 +46,10 @@ const YearSelect = () => {
   return (
     <div className={cx('Year-Option')}>
       <select value={selectedYear} style={{ width: "65px" }} onChange={handleSelectChange}>
-        <option value="">Năm</option>
+        <option value="2023">2023</option>
+        <option value="2020">2020</option>
         <option value="2021">2021</option>
         <option value="2022">2022</option>
-        <option value="2023">2022</option>
       </select>
     </div>
   );

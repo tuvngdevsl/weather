@@ -1,3 +1,8 @@
+.DayCellItem{
+    position: relative;
+
+}
+
 .Day-Cell {
     display: flex;
     width: 106px;
@@ -12,18 +17,47 @@
     position: relative;
     line-height: 1.15;
     font-size: 100%;
-    outline: 5px auto #1b4de4;
     cursor: pointer;
 
-
-    .Span-Active {
+    &-Active {
         border: 1px solid blue;
-        border-radius: 100rem;
-        padding-top: 2px;
-        background-color: blue;
-        color: white;
+        display: flex;
+        width: 106px;
+        padding: 10px 0;
+        margin: 0;
+        flex: 1 1 14.2857%;
+        flex-flow: column;
+        height: 162px;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        line-height: 1.15;
+        font-size: 100%;
+        cursor: pointer;
+
+        .Span-Active {
+            border-radius: 100rem;
+            padding-top: 2px;
+            display: block;
+            width: 22px;
+            height: 23px;
+            font-weight: 300;
+            margin: 5px 0 auto;
+            background-color: blue;
+            color: white;
+        }
     }
 
+    .Span {
+        border-radius: 100rem;
+        padding-top: 2px;
+        color: #000;
+        display: block;
+        width: 22px;
+        height: 23px;
+        font-weight: 300;
+        margin: 5px 0 auto;
+    }
 
     .Icon_Moon {
         display: block;
@@ -42,7 +76,6 @@
     .Icon_Cloud svg {
         width: 50px;
         height: 30px;
-
     }
 
     .Bottom {
@@ -58,10 +91,10 @@
         width: "22px";
         height: "23px";
         font-weight: "300";
-        margin: "5px 0 auto"
+        margin: "5px 0 auto";
     }
 
-    .img-weather{
+    .img-weather {
         width: 75px;
         height: 45px;
     }

@@ -16,6 +16,7 @@ const generateWeatherData = () => {
             current_temperature: Math.floor(Math.random() * 35),
             summary: "Trời ít mây",
             partly_Cloud: "Nhiều mây",
+            active: false,
             day: {
                 temperature: Math.floor(Math.random() * 35),
                 Record_High: "--",

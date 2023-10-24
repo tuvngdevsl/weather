@@ -1,10 +1,9 @@
 import classNames from 'classnames/bind'
 import styles from './DayInfoDetail.module.scss'
-import { AiOutlineClose } from 'react-icons/ai'
-import { BsCloudsFill, BsSunrise, BsSunset } from "react-icons/bs";
+import { BsSunrise, BsSunset } from "react-icons/bs";
 import { RiMoonCloudyFill, RiMoonLine } from 'react-icons/ri'
 import { WiMoonAltWaxingCrescent1 } from 'react-icons/wi';
-import { useState } from 'react';
+
 
 
 
@@ -12,22 +11,12 @@ const cx = classNames.bind(styles)
 
 
 const DayInfoDetail = ({ data }) => {
-    const [isActive, setIsActive] = useState(true);
-
-    console.log(data?.index);
-    const handleActive = () => {
-        setIsActive(!isActive);
-    }
+   
     return (
         <div>
             {
-                isActive && (
+                data && (
                     <div className={cx('DayInfo-Card')}>
-                        <div className={cx('Button-Close')}>
-                            <button className={cx('Button-Close')} onClick={handleActive}>
-                                <AiOutlineClose color='#1b4de4' />
-                            </button>
-                        </div>
                         {/* Ngày */}
                         <div className={cx('DayInfo-Content')}>
                             <div className={cx('Daily-Content')}>
@@ -42,7 +31,7 @@ const DayInfoDetail = ({ data }) => {
                                         </span>
                                     </div>
                                     <div className={cx('ConditionsSummary-icon')}>
-                                        <BsCloudsFill color='#e3e3e3' />
+                                        <img src={`https://developer.accuweather.com/sites/default/files/${(data.src < 10) ? '0' + data.src : data.src}-s.png`} alt={data.summary} className={cx('img-weather')}></img>
                                     </div>
 
                                 </div>
@@ -79,7 +68,7 @@ const DayInfoDetail = ({ data }) => {
                                         </span>
                                     </div>
                                     <div className={cx('ConditionsSummary-icon')}>
-                                        <BsCloudsFill color='#e3e3e3' />
+                                        <img src={`https://developer.accuweather.com/sites/default/files/${(data.src < 10) ? '0' + data.src : data.src}-s.png`} alt={data.summary} className={cx('img-weather')}></img>
                                     </div>
 
                                 </div>
