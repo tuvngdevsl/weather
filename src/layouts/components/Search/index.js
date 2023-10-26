@@ -62,12 +62,12 @@ const Search = () => {
                                 Recents
                             </h2>
                             {
-                                searchResult.length > 0 ? (
+                                searchResult?.length > 0 ? (
                                     searchResult?.map((result) => (
                                         <LocationItem data={result} key={result.Key} />
                                     ))
                                 ) : (
-                                    <div className={cx('wrapper')}>
+                                    <div className={cx('wrapper', 'location')}>
                                         <span className={cx('message')}>Không tìm thấy kết quả nào!</span>
                                     </div>
                                 )
