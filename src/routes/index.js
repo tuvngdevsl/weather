@@ -4,6 +4,7 @@ import Weekend from '~/pages/Weekend'
 import Hourly from '~/pages/Hourly'
 import TenDay from '~/pages/10Day'
 import Radar from '~/pages/Radar'
+import AirQuality from '~/pages/AirQuality'
 
 // Không cần đăng nhập vẫn xem đươc
 const publicRoutes = [
@@ -15,6 +16,8 @@ const publicRoutes = [
     { path: '/I/:location', component: Home },
     { path: '/weekend', component: Weekend },
     { path: '/radar', component: Radar },
+    { path: '/AirQuality', component: AirQuality },
+
 ]
 
 //Phải đăng nhập mới xem được không thì sẽ sang trang login

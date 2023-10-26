@@ -1,6 +1,10 @@
 import * as request from '~/utils/http'
 
+
 const OPEN_API_KEY = "eiP6LAcEEUlZSxhuJxENmZsAnGtGFkYd"
+
+// const OPEN_API_KEY = "TGNnfAceatTI3LI3kSDpaUetq1xvVUV2"
+
 
 
 export const currentWeather = async (locationKey) => {

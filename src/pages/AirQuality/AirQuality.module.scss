@@ -1,0 +1,75 @@
+.container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.TodayQuality {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.sub-title {
+  font-size: 18px;
+  color: #777;
+}
+
+.sub-header {
+  font-size: 14px;
+  color: #777;
+}
+
+.day-title {
+  margin-bottom: 10px;
+}
+
+.air-quality-list {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pollutant-container {
+  display: flex;
+  align-items: center;
+}
+
+.pollutant-details {
+  flex: 1;
+}
+
+.pollutant-details p {
+  margin: 0;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.chart-container {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chart-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}

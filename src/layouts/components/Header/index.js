@@ -112,7 +112,7 @@ const Header = () => {
                                                 <h3>CẢNH BÁO ĐẶC BIỆT</h3>
                                                 <div>
                                                     <Link to="">Trình theo dõi dị ứng</Link>
-                                                    <Link to="">Dự báo chất lượng không khí</Link>
+                                                    <Link to="/AirQuality">Dự báo chất lượng không khí</Link>
                                                 </div>
                                             </nav>
                                         </div>
