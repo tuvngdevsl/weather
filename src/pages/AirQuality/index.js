@@ -57,13 +57,25 @@ const cx = classNames.bind(styles);
 const AirQuality = () => {
   const createDoughnutData = (value, limit) => {
     const remaining = Math.max(0, limit - value);
+
+    let backgroundColor;
+    if (value > 120) {
+      backgroundColor = ["#FF0000", "#d3d3d3"]; // Red
+    } else if (value >= 80 && value <= 120) {
+      backgroundColor = ["#FFA500", "#d3d3d3"]; // Orange
+    } else if (value >= 40 && value < 80) {
+      backgroundColor = ["#FFFF00", "#d3d3d3"]; // Yellow
+    } else {
+      backgroundColor = ["#00FF00", "#d3d3d3"]; // Green
+    }
+
     return {
       labels: ["Used", "Remaining"],
       datasets: [
         {
           data: [value, remaining],
-          backgroundColor: ["#FF0000", "#d3d3d3"],
-          hoverBackgroundColor: ["#FF0000", "#d3d3d3"],
+          backgroundColor: backgroundColor,
+          hoverBackgroundColor: backgroundColor,
         },
       ],
     };
@@ -75,9 +87,7 @@ const AirQuality = () => {
         <div className={cx("header")}>
           <h2>
             <strong>Today's Air Quality</strong>{" "}
-            <span className={cx("sub-title")}>
-              - {airQualityData.location}
-            </span>
+            <span className={cx("sub-title")}>- {airQualityData.location}</span>
           </h2>
         </div>
 
@@ -88,7 +98,27 @@ const AirQuality = () => {
                 <tbody>
                   <tr>
                     <td rowspan="3" className={cx("rate")}>
-                      {airQualityData.overallAQI}
+                      <Doughnut
+                        data={createDoughnutData(
+                          airQualityData.overallAQI,
+                          200
+                        )}
+                        options={{
+                          responsive: true,
+                          maintainAspectRatio: true,
+                          cutout: "75%",
+                          plugins: {
+                            legend: false,
+                            tooltip: false,
+                          },
+                        }}
+                        width={75}
+                        height={75}
+                      />
+
+                      <div className={cx("chart-label")}>
+                        <span> {airQualityData.overallAQI}</span>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -107,60 +137,34 @@ const AirQuality = () => {
       </div>
 
       <div className={cx("air-quality-list")}>
-        <table>
-          <tbody>
-            {airQualityData.pollutants.map((pollutant, index) => (
-              <tr key={index}>
-                <td className={cx("chart-container")}>
-                  {index === 0 ? (
-                    <Doughnut
-                      data={createDoughnutData(
-                        airQualityData.overallAQI,
-                        200
-                      )}
-                      options={{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        cutout: "75%",
-                        plugins: {
-                          legend: false,
-                          tooltip: false,
-                        },
-                      }}
-                      width={75}
-                      height={75}
-                    />
-                  ) : (
-                    <Doughnut
-                      data={createDoughnutData(pollutant.rate, 200)}
-                      options={{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        cutout: "75%",
-                        plugins: {
-                          legend: false,
-                          tooltip: false,
-                        },
-                      }}
-                      width={75}
-                      height={75}
-                    />
-                  )}
-                  <div className={cx("chart-label")}>
-                    <span>
-                      {index === 0 ? airQualityData.overallAQI : pollutant.rate}
-                    </span>
-                  </div>
-                </td>
-                <td className={cx("details")}>
-                  <p>{pollutant.name}</p>
-                  <p>{pollutant.status}</p>
-                  <p>{pollutant.value}</p>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {airQualityData.pollutants.map((pollutant, index) => (
+          <div key={index} className={cx("pollutant-container")}>
+            <div className={cx("chart-container")}>
+              <Doughnut
+                data={createDoughnutData(pollutant.rate, 200)}
+                options={{
+                  responsive: true,
+                  maintainAspectRatio: true,
+                  cutout: "75%",
+                  plugins: {
+                    legend: false,
+                    tooltip: false,
+                  },
+                }}
+                width={75}
+                height={75}
+              />
+              <div className={cx("chart-label")}>
+                <span>{pollutant.rate}</span>
+              </div>
+            </div>
+            <div className={cx("pollutant-details")}>
+              <p>{pollutant.name}</p>
+              <p>{pollutant.status}</p>
+              <p>{pollutant.value}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
