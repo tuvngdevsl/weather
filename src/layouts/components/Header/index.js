@@ -134,6 +134,8 @@ const Header = () => {
                             <Link to="/10day">10 Day </Link>
                             <Link to="/monthly">Monthly</Link>
                             <Link to="/weekend">Weekend</Link>
+                            <Link to="/radar">Radar</Link>
+
                             <div>
                                 <button>
                                     Thêm dự báo
