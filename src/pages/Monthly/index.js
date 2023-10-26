@@ -4,6 +4,7 @@ import { useState } from "react";
 import DayCellItem from "~/components/DayCellItem";
 import { useWeather } from "~/context/WeatherContext";
 import generateWeatherData from "~/mock/WeatherData";
+import { CubeSpinner } from "react-spinners-kit"
 
 const cx = classNames.bind(styles);
 
@@ -62,6 +63,14 @@ const Monthly = () => {
   ];
 
   const weatherData = generateWeatherData();
+
+  if ( !currentWeatherLocation && !detailData &&  !weather12Hourly) {
+    return (
+      <div className={cx('loading')} >
+       <CubeSpinner size={100} />
+      </div>
+    )
+  }
 
   return (
     <>

@@ -19,8 +19,8 @@ const Radar = () => {
         <div className={cx('container')}>
             <iframe
                 title="Windy Map"
-                width="1200"
-                height="600"
+                width="100%"
+                height="800"
                 src={`https://embed.windy.com/embed2.html?lat=${lat}&lon=${lon}&zoom=5`}
                 frameBorder="0"
 

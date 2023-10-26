@@ -14,13 +14,20 @@ import { TbUvIndex } from 'react-icons/tb'
 import { TiWeatherCloudy } from 'react-icons/ti'
 import { GiHeavyRain } from 'react-icons/gi';
 import moment from 'moment';
-import 'moment/locale/vi';  
-
+import 'moment/locale/vi';
+import { CubeSpinner } from "react-spinners-kit"
 
 const cx = classNames.bind(styles);
 const Home = () => {
   const { currentWeatherLocation, detailData, weather1Day, weather12Hourly, weather5Day } = useWeather();
-  
+  if (!weather5Day && !currentWeatherLocation && !detailData && !weather1Day && !weather12Hourly) {
+    return (
+      <div className={cx('loading')} >
+       <CubeSpinner size={100} />
+      </div>
+    )
+  }
+
   return (
     <div >
       {
@@ -30,7 +37,7 @@ const Home = () => {
               <div>
                 <div className={cx('card')}>
                   <div className={cx('card-header')}>
-                    <h3> {currentWeatherLocation.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {(detailData[0].LocalObservationDateTime).substring(11,19)}</span>
+                    <h3> {currentWeatherLocation.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {(detailData[0].LocalObservationDateTime).substring(11, 19)}</span>
                   </div>
                   <div className={cx('card-body')}>
                     <div className={cx('card-body-content')}>
@@ -257,7 +264,7 @@ const Home = () => {
                 <div className={cx('aside-body')}>
                   <div>
                     <svg width={60} height={60} >
-                      
+
                       {/* <text x="50%" y="55%" >33</text> */}
                       <text x="50%" y="55%" dominantBaseline="middle" alignmentBaseline="middle" textAnchor="middle" className={cx('circle-text')} data-testid="DonutChartValue">{weather1Day.DailyForecasts[0].AirAndPollen[0].CategoryValue}</text>
                     </svg>

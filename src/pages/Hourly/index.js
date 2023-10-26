@@ -3,6 +3,7 @@ import styles from './Hourly.module.scss'
 import HourlyItem from '~/components/HourlyItem';
 import { useWeather } from "~/context/WeatherContext";
 import moment from 'moment';
+import { CubeSpinner } from "react-spinners-kit"
 
 
 
@@ -10,7 +11,14 @@ import moment from 'moment';
 const cx = classNames.bind(styles);
 
 const Hourly = () => {
-    const { weather12Hourly, currentWeatherLocation, detailData } = useWeather();;
+    const { weather12Hourly, currentWeatherLocation, detailData } = useWeather();
+    if (!currentWeatherLocation && !detailData && !weather12Hourly) {
+        return (
+          <div className={cx('loading')} >
+           <CubeSpinner size={100} />
+          </div>
+        )
+      }
 
     return (
         <>

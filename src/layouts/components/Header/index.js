@@ -21,6 +21,7 @@ const Header = () => {
         setLocation(newLocation);
     }
    
+    console.log(detailData);
     return (
         <>
             <div>
@@ -39,49 +40,11 @@ const Header = () => {
                                 <span className={cx('temperature')}>°C</span>
                                 <div className={cx('dropdownContainer')}>
                                     <select className={cx('dropdown')} onChange={handleLocationChange} value={location} >
-                                        <optgroup label="CHÂU MỸ">
-                                            <option value="AG">Antigua và Barbuda | English</option>
-                                            <option value="AR">Argentina | Español</option>
-                                            <option value="BS">Bahamas | English</option>
-                                            <option value="BB">Barbados | English</option>
-                                            <option value="BZ">Belize | English</option>
-                                            <option value="BO">Bolivia | Español</option>
-                                            <option value="BR">Brazil | Português</option>
-                                            <option value="CA">Canada | English</option>
-                                            <option value="CA">Canada | Français</option>
-                                            <option value="CL">Chile | Español</option>
-                                            <option value="CO">Colombia | Español</option>
-                                            <option value="CR">Costa Rica | Español</option>
-                                            <option value="DM">Dominica | English</option>
-                                            <option value="DO">Cộng Hòa Dominica | Español</option>
-                                            <option value="EC">Ecuador | Español</option>
-                                            <option value="SV">El Salvador | Español</option>
-                                            <option value="GD">Grenada | English</option>
-                                            <option value="GT">Guatemala | Español</option>
-                                            <option value="GY">Guyana | English</option>
-                                            <option value="HT">Haiti | Français</option>
-                                            <option value="HN">Honduras | Español</option>
-                                            <option value="JM">Jamaica | English</option>
-                                            <option value="MX">Mexico | Español</option>
-                                            <option value="NI">Nicaragua | Español</option>
-                                            <option value="PA">Panama | Español</option>
-                                            <option value="PA">Panama | English</option>
-                                            <option value="PY">Paraguay | Español</option>
-                                            <option value="PE">Peru | Español</option>
-                                            <option value="KN">St. Kitts và Nevis | English</option>
-                                            <option value="LC">St. Lucia | English</option>
-                                            <option value="VC">St. Vincent và Grenadines | English</option>
-                                            <option value="SR">Suriname | Nederlands</option>
-                                            <option value="TT">Trinidad và Tobago | English</option>
-                                            <option value="UY">Uruguay | Español</option>
+                                        <optgroup label="CHÂU MỸ"> 
                                             <option value="US">Hoa Kỳ | English</option>
-                                            <option value="US">Hoa Kỳ | Español</option>
-                                            <option value="VR">Venezuela | Español</option>
                                         </optgroup>
                                         <optgroup label="CHÂU PHI">
-                                            <option value="DZ">Algeria | العربية</option>
                                             <option value="DZ">Algeria | Français</option>
-
                                         </optgroup>
                                         <optgroup label="CHÂU Á THÁI BÌNH DƯƠNG">
                                             <option value="JP">JP</option>

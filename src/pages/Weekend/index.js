@@ -2,12 +2,18 @@ import styles from "./Weekend.module.scss"
 import classNames from "classnames/bind"
 import DayItem from "~/components/DayItem"
 import { useWeather } from "~/context/WeatherContext"
-
+import { CubeSpinner } from "react-spinners-kit"
 const cx = classNames.bind(styles)
 
 const Weekend = () => {
   const { weather5Day, currentWeatherLocation, detailData } = useWeather();
-  if (!weather5Day && !currentWeatherLocation && !detailData) return <div>Loading...</div>;
+  if (!currentWeatherLocation && !detailData) {
+    return (
+      <div className={cx('loading')} >
+        <CubeSpinner size={100} />
+      </div>
+    )
+  }
   return (
     <div className={cx('DaybreakLargeScreen')}>
       <div className={cx('Header-Title')}>

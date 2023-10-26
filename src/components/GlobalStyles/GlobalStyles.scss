@@ -1,5 +1,5 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;700;900&display=swap');
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;700;900&display=swap");
 
 :root {
     --primary: #59516e;
@@ -36,10 +36,10 @@
     --backgroundBrandAccent: #1b4de4;
     --backgroundInverse: #000;
     --backgroundOverlay: #fff;
-    --backgroundModalOverlay: rgba(0,0,0,0.8);
-    --backgroundShadow: rgba(0,0,0,0.2);
+    --backgroundModalOverlay: rgba(0, 0, 0, 0.8);
+    --backgroundShadow: rgba(0, 0, 0, 0.2);
     --backgroundTableBody: #f1f1f1;
-    --backgroundInverseOverlay: rgba(0,0,0,0.55);
+    --backgroundInverseOverlay: rgba(0, 0, 0, 0.55);
     --backgroundHeading: #f6f6f6;
     --backgroundProfileIcon: #05336b;
     --backgroundCaution: #e02020;
@@ -77,13 +77,13 @@
     --module-rail-padding: 26px;
     --module-content-padding: 10px 16px;
 
-     // Default layout
-     --default-layout-header-height: 60px;
-     --default-layout-width: 1150px;
-     --default-layout-horizontal-spacer: 24px;
+    // Default layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -94,9 +94,17 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
     background-color: hsl(265.71deg 10.34% 60.2%);
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    align-items: center;
+
 }
