@@ -3,6 +3,7 @@ import Monthly from '~/pages/Monthly'
 import Weekend from '~/pages/Weekend'
 import Hourly from '~/pages/Hourly'
 import TenDay from '~/pages/10Day'
+import TrinhDuBaoDiUng from '~/pages/TrinhTheoDoiDiUng'
 
 // Không cần đăng nhập vẫn xem đươc
 const publicRoutes = [
@@ -11,7 +12,7 @@ const publicRoutes = [
     { path: '/hourly', component: Hourly },
     { path: '/today', component: Home },
     { path: '/10day', component: TenDay },
-    { path: '/I/:location', component: Home },
+    { path: '/trinhtheodoidiung', component: TrinhDuBaoDiUng },
     { path: '/weekend', component: Weekend },
 ]
 
