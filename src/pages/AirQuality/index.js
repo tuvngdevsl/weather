@@ -98,26 +98,28 @@ const AirQuality = () => {
                 <tbody>
                   <tr>
                     <td rowspan="3" className={cx("rate")}>
-                      <Doughnut
-                        data={createDoughnutData(
-                          airQualityData.overallAQI,
-                          200
-                        )}
-                        options={{
-                          responsive: true,
-                          maintainAspectRatio: true,
-                          cutout: "75%",
-                          plugins: {
-                            legend: false,
-                            tooltip: false,
-                          },
-                        }}
-                        width={75}
-                        height={75}
-                      />
+                      <div className={cx("chart-container")}>
+                        <Doughnut
+                          data={createDoughnutData(
+                            airQualityData.overallAQI,
+                            200
+                          )}
+                          options={{
+                            responsive: true,
+                            maintainAspectRatio: true,
+                            cutout: "75%",
+                            plugins: {
+                              legend: false,
+                              tooltip: false,
+                            },
+                          }}
+                          width={75}
+                          height={75}
+                        />
 
-                      <div className={cx("chart-label")}>
-                        <span> {airQualityData.overallAQI}</span>
+                        <div className={cx("chart-label")}>
+                          <span> {airQualityData.overallAQI}</span>
+                        </div>
                       </div>
                     </td>
                   </tr>
