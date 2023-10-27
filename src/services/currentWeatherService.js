@@ -1,7 +1,7 @@
 import * as request from '~/utils/http'
 
 
-const OPEN_API_KEY = "LsXDmLTcFLx4xR1xVcaSin17jRv1EQac"
+const OPEN_API_KEY = "ExFvjBLb6RBbjy5uRSRhRlfEZSUue8Xn"
 
 // const OPEN_API_KEY = "TGNnfAceatTI3LI3kSDpaUetq1xvVUV2"
 

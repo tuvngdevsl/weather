@@ -25,7 +25,6 @@ const WeatherProvider = ({ children }) => {
                 navigator.geolocation.getCurrentPosition(async (position) => {
                     const { latitude, longitude } = position.coords;
                     const locationKey = `${latitude},${longitude}`
-
                     const result = await currentWeather(locationKey);
                     const detail = await detailWeather(result?.Key);
                     const weather1Day = await dailyForecasts(result?.Key);

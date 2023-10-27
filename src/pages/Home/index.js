@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
 import classNames from 'classnames/bind'
@@ -25,24 +25,19 @@ const Home = () => {
   const { currentWeatherLocation, detailData, weather1Day, weather12Hourly, weather5Day } = useWeather();
 
 
-  const updateBackground = () => {
+  const updateBackground = useCallback(() => {
     if (detailData && detailData.length > 0) {
       const weatherCondition = detailData[0].WeatherText;
-
-      const matchTheme = theme.find((t) => {
-        return t.name === weatherCondition
-      })
-
+      const matchTheme = theme.find((t) => t.name === weatherCondition);
       if (matchTheme) {
-        setBackgroundImage(matchTheme.url)
+        setBackgroundImage(matchTheme.url);
       }
     }
-  }
-
+  }, [detailData]);
 
   useEffect(() => {
     updateBackground();
-  }, [detailData]);
+  }, [detailData, updateBackground]);
 
   if (!weather5Day && !currentWeatherLocation && !detailData && !weather1Day && !weather12Hourly) {
     return (
@@ -64,7 +59,7 @@ const Home = () => {
                   <div className={cx('card-header')}>
                     <h3> {currentWeatherLocation.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {(detailData[0].LocalObservationDateTime).substring(11, 19)}</span>
                   </div>
-                  <div className={cx('card-body')} style={{backgroundImage: backgroundImage}}>
+                  <div className={cx('card-body')} style={{ backgroundImage: backgroundImage, width: '100%', height: '180px' }}>
                     <div className={cx('card-body-content')}>
                       <span className={cx('temperature')}> {Math.floor(detailData[0].Temperature.Metric.Value)}°</span>
                       <span className={cx('description')}> {detailData[0].WeatherText} </span>

@@ -6,7 +6,7 @@ import * as request from '../utils/http';
 
 // const OPEN_API_KEY = "aa758be0dbb67363e6c09ff2cbd74ca9"  OpenWeather
 
-const ACCUWEATHER_API_KEY = 'LsXDmLTcFLx4xR1xVcaSin17jRv1EQac'
+const ACCUWEATHER_API_KEY = 'ExFvjBLb6RBbjy5uRSRhRlfEZSUue8Xn'
 
 // const ACCUWEATHER_API_KEY = 'TGNnfAceatTI3LI3kSDpaUetq1xvVUV2'
 
