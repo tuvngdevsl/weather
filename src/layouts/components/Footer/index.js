@@ -4,21 +4,21 @@ import Logo from "./Logo/logo.png";
 import Logo1 from "./Logo/Georgia.png";
 import Logo2 from "./Logo/cloud.png";
 import R from "./Logo/R.png"
-import { BsFacebook, BsYoutube } from "react-icons/bs";
+import { BsFacebook, BsFillArrowUpCircleFill, BsYoutube } from "react-icons/bs";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaInstagramSquare } from "react-icons/fa";
 
 
 
 const Footer = () => {
-    // Hàm để cuộn lên đầu trang
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    };
-  
+  // Hàm để cuộn lên đầu trang
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer>
       <div className="footer-content">
@@ -26,23 +26,23 @@ const Footer = () => {
           <div style={{ marginLeft: "20%" }} className="social-icons">
             <span>Kết nối với chúng tôi:</span>
             <a href="https://www.facebook.com/">
-              <BsFacebook color="#000" className='icon'/>
+              <BsFacebook color="#000" className='icon' />
             </a>
             <a href="https://twitter.com/">
-              <AiFillTwitterCircle color="#000"/>
+              <AiFillTwitterCircle color="#000" />
             </a>
             <a href="https://www.instagram.com/">
-             <FaInstagramSquare color="#000" />
+              <FaInstagramSquare color="#000" />
             </a>
             <a href="https://www.youtube.com/">
-              <BsYoutube color="#000"/>
+              <BsYoutube color="#000" />
             </a>
           </div>
 
 
           <div className="scroll-to-top">
             <button id="scrollToTopButton" onClick={scrollToTop}>
-              <i className="fas fa-arrow-up"></i>
+              <BsFillArrowUpCircleFill className="fas fa-arrow-up" ></BsFillArrowUpCircleFill>
             </button>
           </div>
 
@@ -123,14 +123,14 @@ const Footer = () => {
             <div className="new-contact-item">
               <a href="https://www.ibm.com/cloud">
                 Cung cấp bởi
-                <img src={Logo2} style={{ width: "58px", height: "52px", margin:"0 12px"}} />
+                <img src={Logo2} style={{ width: "58px", height: "52px", margin: "0 12px" }} alt='Logo' />
                 IBM Cloud
               </a>
             </div>
           </div>
         </div>
       </div>
-    
+
     </footer>
   );
 };

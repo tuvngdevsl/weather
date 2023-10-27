@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './Home.module.scss'
 import classNames from 'classnames/bind'
 import Card from 'react-bootstrap/Card'
@@ -16,18 +17,42 @@ import { GiHeavyRain } from 'react-icons/gi';
 import moment from 'moment';
 import 'moment/locale/vi';
 import { CubeSpinner } from "react-spinners-kit"
+import theme from '~/mock/Theme'
 
 const cx = classNames.bind(styles);
 const Home = () => {
+  const [backgroundImage, setBackgroundImage] = useState('')
   const { currentWeatherLocation, detailData, weather1Day, weather12Hourly, weather5Day } = useWeather();
+
+
+  const updateBackground = () => {
+    if (detailData && detailData.length > 0) {
+      const weatherCondition = detailData[0].WeatherText;
+
+      const matchTheme = theme.find((t) => {
+        return t.name === weatherCondition
+      })
+
+      if (matchTheme) {
+        setBackgroundImage(matchTheme.url)
+      }
+    }
+  }
+
+
+  useEffect(() => {
+    updateBackground();
+  }, [detailData]);
+
   if (!weather5Day && !currentWeatherLocation && !detailData && !weather1Day && !weather12Hourly) {
     return (
       <div className={cx('loading')} >
-       <CubeSpinner size={100} />
+        <CubeSpinner size={100} />
       </div>
     )
   }
 
+  console.log(backgroundImage)
   return (
     <div >
       {
@@ -39,7 +64,7 @@ const Home = () => {
                   <div className={cx('card-header')}>
                     <h3> {currentWeatherLocation.LocalizedName} </h3> <span className={cx('current-condition')}>Kể từ {(detailData[0].LocalObservationDateTime).substring(11, 19)}</span>
                   </div>
-                  <div className={cx('card-body')}>
+                  <div className={cx('card-body')} style={{backgroundImage: backgroundImage}}>
                     <div className={cx('card-body-content')}>
                       <span className={cx('temperature')}> {Math.floor(detailData[0].Temperature.Metric.Value)}°</span>
                       <span className={cx('description')}> {detailData[0].WeatherText} </span>
@@ -137,120 +162,129 @@ const Home = () => {
                 <div className={cx('card-eachHour')}>
                   <Card.Header className={cx('header')}>Dự báo từng giờ</Card.Header>
                   <CardGroup className={cx('card-eachHour-content')}>
-                    <Card className={cx('hour-item')}>
-                      <Card.Body>
-                        <Card.Title className={cx('active', 'title')}>Bây giờ</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather12Hourly[0].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[0].WeatherIcon < 10 ? '0' + weather12Hourly[0].WeatherIcon : weather12Hourly[0].WeatherIcon}-s.png`} alt={weather12Hourly[0].WeatherText} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather12Hourly[0].Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('hour-item')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{(weather12Hourly[1].DateTime).substring(11, 16)}</Card.Title>
-                        <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[1].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[1].WeatherIcon < 10 ? '0' + weather12Hourly[1].WeatherIcon : weather12Hourly[1].WeatherIcon}-s.png`} alt={weather12Hourly[1].WeatherText} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather12Hourly[1].Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('hour-item')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{(weather12Hourly[2].DateTime).substring(11, 16)}</Card.Title>
-                        <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[2].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[2].WeatherIcon < 10 ? '0' + weather12Hourly[2].WeatherIcon : weather12Hourly[2].WeatherIcon}-s.png`} alt={weather12Hourly[2].WeatherText} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather12Hourly[2].Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('hour-item')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{(weather12Hourly[3].DateTime).substring(11, 16)}</Card.Title>
-                        <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[3].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[3].WeatherIcon < 10 ? '0' + weather12Hourly[3].WeatherIcon : weather12Hourly[3].WeatherIcon}-s.png`} alt={weather12Hourly[3].WeatherText} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather12Hourly[3].Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('hour-item')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{(weather12Hourly[4].DateTime).substring(11, 16)}</Card.Title>
-                        <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[4].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[4].WeatherIcon < 10 ? '0' + weather12Hourly[4].WeatherIcon : weather12Hourly[4].WeatherIcon}-s.png`} alt={weather12Hourly[4].WeatherText} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather12Hourly[4].Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
+                    <Link to="/hourly" className={cx('card-eachHour-content')}>
+                      <Card className={cx('hour-item')}>
+                        <Card.Body>
+                          <Card.Title className={cx('active', 'title')}>Bây giờ</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather12Hourly[0].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[0].WeatherIcon < 10 ? '0' + weather12Hourly[0].WeatherIcon : weather12Hourly[0].WeatherIcon}-s.png`} alt={weather12Hourly[0].WeatherText} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather12Hourly[0].Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('hour-item')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{(weather12Hourly[1].DateTime).substring(11, 16)}</Card.Title>
+                          <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[1].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[1].WeatherIcon < 10 ? '0' + weather12Hourly[1].WeatherIcon : weather12Hourly[1].WeatherIcon}-s.png`} alt={weather12Hourly[1].WeatherText} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather12Hourly[1].Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('hour-item')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{(weather12Hourly[2].DateTime).substring(11, 16)}</Card.Title>
+                          <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[2].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[2].WeatherIcon < 10 ? '0' + weather12Hourly[2].WeatherIcon : weather12Hourly[2].WeatherIcon}-s.png`} alt={weather12Hourly[2].WeatherText} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather12Hourly[2].Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('hour-item')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{(weather12Hourly[3].DateTime).substring(11, 16)}</Card.Title>
+                          <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[3].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[3].WeatherIcon < 10 ? '0' + weather12Hourly[3].WeatherIcon : weather12Hourly[3].WeatherIcon}-s.png`} alt={weather12Hourly[3].WeatherText} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather12Hourly[3].Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('hour-item')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{(weather12Hourly[4].DateTime).substring(11, 16)}</Card.Title>
+                          <Card.Subtitle className={cx('temperature')}> {Math.floor((weather12Hourly[4].Temperature.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather12Hourly[4].WeatherIcon < 10 ? '0' + weather12Hourly[4].WeatherIcon : weather12Hourly[4].WeatherIcon}-s.png`} alt={weather12Hourly[4].WeatherText} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather12Hourly[4].Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                    </Link>
                   </CardGroup>
-                  <Button className={cx('btn')}> 12 giờ tới</Button>
+                  <Link to="/hourly" >
+                    <Button className={cx('btn')}> 12 giờ tới</Button>
+                  </Link>
                 </div>
 
                 <div className={cx('card-eachDay')}>
                   <Card.Header className={cx('header')}> Dự báo hàng ngày </Card.Header>
                   <CardGroup className={cx('card-eachDay-content')}>
-                    <Card className={cx('each-day')}>
-                      <Card.Body>
-                        <Card.Title className={cx('active', 'title')}>{moment(weather5Day.DailyForecasts[0].Date).format('dd DD')}</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[0].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[0].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[0].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[0].Day.Icon : weather5Day.DailyForecasts[0].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[0].Day.LongPhrase} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[0].Day.Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('each-day')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[1].Date).format('dd DD')}</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[1].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[1].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[1].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[1].Day.Icon : weather5Day.DailyForecasts[1].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[1].Day.LongPhrase} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[1].Day.Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('each-day')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[2].Date).format('dd DD')}</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[2].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[2].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[2].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[2].Day.Icon : weather5Day.DailyForecasts[2].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[2].Day.LongPhrase} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[2].Day.Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('each-day')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[3].Date).format('dd DD')}</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[3].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[3].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[3].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[3].Day.Icon : weather5Day.DailyForecasts[3].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[3].Day.LongPhrase} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[3].Day.Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
-                    <Card className={cx('each-day')}>
-                      <Card.Body>
-                        <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[4].Date).format('dd DD')}</Card.Title>
-                        <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[4].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
-                        <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[4].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
-                        <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[4].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[4].Day.Icon : weather5Day.DailyForecasts[4].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[4].Day.LongPhrase} />
-                        <Card.Footer>
-                          <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[4].Day.Rain.Value} %
-                        </Card.Footer>
-                      </Card.Body>
-                    </Card>
+                    <Link to="/10day" className={cx('card-eachDay-content')}>
+                      <Card className={cx('each-day')}>
+                        <Card.Body>
+                          <Card.Title className={cx('active', 'title')}>{moment(weather5Day.DailyForecasts[0].Date).format('dd DD')}</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[0].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[0].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[0].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[0].Day.Icon : weather5Day.DailyForecasts[0].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[0].Day.LongPhrase} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[0].Day.Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('each-day')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[1].Date).format('dd DD')}</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[1].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[1].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[1].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[1].Day.Icon : weather5Day.DailyForecasts[1].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[1].Day.LongPhrase} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[1].Day.Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('each-day')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[2].Date).format('dd DD')}</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[2].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[2].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[2].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[2].Day.Icon : weather5Day.DailyForecasts[2].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[2].Day.LongPhrase} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[2].Day.Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('each-day')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[3].Date).format('dd DD')}</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[3].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[3].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[3].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[3].Day.Icon : weather5Day.DailyForecasts[3].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[3].Day.LongPhrase} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[3].Day.Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                      <Card className={cx('each-day')}>
+                        <Card.Body>
+                          <Card.Title className={cx('title')}>{moment(weather5Day.DailyForecasts[4].Date).format('dd DD')}</Card.Title>
+                          <Card.Subtitle className={cx('temperature', 'active')}> {Math.floor((weather5Day.DailyForecasts[4].Temperature.Maximum.Value - 32) * 5 / 9)}°</Card.Subtitle>
+                          <Card.Text className={cx('subTemperature')}> {Math.floor((weather5Day.DailyForecasts[4].Temperature.Minimum.Value - 32) * 5 / 9)}°</Card.Text>
+                          <Card.Img src={`https://developer.accuweather.com/sites/default/files/${weather5Day.DailyForecasts[4].Day.Icon < 10 ? '0' + weather5Day.DailyForecasts[4].Day.Icon : weather5Day.DailyForecasts[4].Day.Icon}-s.png`} alt={weather5Day.DailyForecasts[4].Day.LongPhrase} />
+                          <Card.Footer>
+                            <GiHeavyRain color='blue' /> {weather5Day.DailyForecasts[4].Day.Rain.Value} %
+                          </Card.Footer>
+                        </Card.Body>
+                      </Card>
+                    </Link>
+
                   </CardGroup>
-                  <Button className={cx('btn')}> 5 ngày tới</Button>
+                  <Link to="/10day" >
+                    <Button className={cx('btn')}> 5 ngày tới</Button>
+                  </Link>
                 </div>
               </div>
 

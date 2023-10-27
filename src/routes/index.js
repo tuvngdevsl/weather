@@ -5,6 +5,7 @@ import Hourly from '~/pages/Hourly'
 import TenDay from '~/pages/10Day'
 import Radar from '~/pages/Radar'
 import AirQuality from '~/pages/AirQuality'
+import AllergyTracker from '~/pages/Allergytracker'
 
 // Không cần đăng nhập vẫn xem đươc
 const publicRoutes = [
@@ -17,6 +18,7 @@ const publicRoutes = [
     { path: '/weekend', component: Weekend },
     { path: '/radar', component: Radar },
     { path: '/AirQuality', component: AirQuality },
+    { path: '/allergyTracker', component: AllergyTracker },
 
 ]
 

@@ -6,7 +6,7 @@ import styles from './DayCellItem.module.scss'
 import { useState } from 'react'
 const cx = classNames.bind(styles)
 
-const DayCellItem = ({ data }) => {
+const DayCellItem = ({ data, onClick }) => {
     const [isActive, setIsActive] = useState(false);
     
     const handleDisplayDayDetail = () => {
@@ -18,9 +18,10 @@ const DayCellItem = ({ data }) => {
         )
     }
 
+
     return (
         <div>
-            <button onClick={handleDisplayDayDetail} className={data.active ? `${cx('Day-Cell-Active')}` : `${cx('Day-Cell')}`}>
+            <button onClick={onClick} className={data.active ? `${cx('Day-Cell-Active')}` : `${cx('Day-Cell')}`}>
                 <div>
                     <WiMoonAltWaningGibbous1 className={cx('Icon_Moon')} />
                 </div>
@@ -46,11 +47,11 @@ const DayCellItem = ({ data }) => {
                     </div>
                 </div>
             </button>
-            {
+            {/* {
                 isActive && (
                     <DayInfoDetail key={data?.index} data={data} />
                 )
-            }
+            } */}
         </div>
     )
 }

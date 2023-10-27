@@ -1,7 +1,7 @@
 const theme = [
     {
         id: 1,
-        name: "Nắng",
+        name: "Nhiều nắng",
         url: "url(https://s.w-x.co/WeatherImages_Web/WeatherImage_Sunny-day_2.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70)",
         bgr: "#005986"
     },

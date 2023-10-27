@@ -5,6 +5,8 @@ import DayCellItem from "~/components/DayCellItem";
 import { useWeather } from "~/context/WeatherContext";
 import generateWeatherData from "~/mock/WeatherData";
 import { CubeSpinner } from "react-spinners-kit"
+import DayInfoDetail from "~/components/DayInfoDetail";
+import DisplayMonthFull from "~/components/DisplayMonthFull";
 
 const cx = classNames.bind(styles);
 
@@ -57,19 +59,47 @@ const YearSelect = () => {
 };
 
 const Monthly = () => {
+  const weatherData = generateWeatherData();
+  const [data, setData] = useState(weatherData);
+  const [checkActive, setCheckActive] = useState(false)
+  const [indexCurrent, setIndexCurrent] = useState(-1)
+  const [close, setClose] = useState(true)
+  const [item, setItem] = useState({})
   const { weather12Hourly, currentWeatherLocation, detailData } = useWeather();
   const dayOfWeek = [
     'Chủ Nhật', 'T.2', 'T.3', 'T.4', 'T.5', 'T.6', 'T.7'
   ];
 
-  const weatherData = generateWeatherData();
 
-  if ( !currentWeatherLocation && !detailData &&  !weather12Hourly) {
+  if (!currentWeatherLocation && !detailData && !weather12Hourly) {
     return (
       <div className={cx('loading')} >
-       <CubeSpinner size={100} />
+        <CubeSpinner size={100} />
       </div>
     )
+  }
+
+  const handleClick = (index, item) => {
+    setItem(item)
+    if (index !== indexCurrent && close) {
+      setCheckActive(!checkActive)
+      setClose(false)
+    }
+
+    setIndexCurrent(index);
+    const dataCopy = [ ...weatherData ]
+    dataCopy[index].active = true
+    setData(dataCopy)
+  }
+
+  const handleSetCheckActive = (index) => {
+    setCheckActive(!checkActive)
+    setClose(!close)
+    setIndexCurrent(index)
+    const dataCopy = [...weatherData ]
+    dataCopy[index].active = false;
+    setData(dataCopy)
+    index = -1;
   }
 
   return (
@@ -103,9 +133,13 @@ const Monthly = () => {
                 }
               </dl>
               <div className={cx('Calender-Wrapper')}>
-                {weatherData.map((dayData, index) => (
-                  <DayCellItem key={index} data={dayData} />
-                ))}
+                <DisplayMonthFull
+                  weatherData={data}
+                  onClick={handleClick}
+                  checkActive={checkActive}
+                  setCheckActive={handleSetCheckActive}
+                  indexCurrent={indexCurrent}
+                  item={item} />
               </div>
             </div>
 

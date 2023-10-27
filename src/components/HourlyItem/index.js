@@ -22,7 +22,7 @@ const HourlyItem = ({ data }) => {
     const changeTemperature = Math.floor((data.Temperature.Value - 32) * 5 / 9)
 
   
-    console.log(data);
+   
     const handleToggle = () => {
         setIsOpen(prevIsOpen => !prevIsOpen);
     }

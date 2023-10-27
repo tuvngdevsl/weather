@@ -33,7 +33,6 @@ const DisFull = (props) => {
                             <div className={styles.DisFullCustom}>
                                 <div className={styles.DisFullButton}><button onClick={(() => props.setCheckActive(index))}> X</button></div>
                                 <div className={props.item.night.temperature ? `${styles.Disfulltime}` : ""}>
-                                    {console.log(item)}
                                     <DisplayFull
                                         status={"ngày"}
                                         time={props.item.time}

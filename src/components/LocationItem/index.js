@@ -17,8 +17,6 @@ const LocationItem = ({ data }) => {
 
     };
 
-    console.log(searchLocation)
-    console.log(data);
     return (
         // <div>
         //     {p

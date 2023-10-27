@@ -21,9 +21,12 @@ const Month = () => {
     }
 
     setIndexCurrent(index)
+    
+    
+    
+    
     const dataCopy = WeatherData.map(x => ({ ...x, active: false }))
     dataCopy[index].active = true
-    console.log(dataCopy)
     setData(dataCopy)
   }
   const handleSetCheckActive = (index) => {

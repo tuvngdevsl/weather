@@ -183,3 +183,18 @@ svg {
 }
 
 /* Các quy tắc CSS cho right-section */
+/* cuộn lên */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#scrollToTopButton {
+  background-color: #0c4972;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}

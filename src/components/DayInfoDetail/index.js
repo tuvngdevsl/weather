@@ -10,14 +10,17 @@ import { WiMoonAltWaxingCrescent1 } from 'react-icons/wi';
 const cx = classNames.bind(styles)
 
 
-const DayInfoDetail = ({ data }) => {
-   
+const DayInfoDetail = ({ data, onClick }) => {
+
     return (
         <div>
             {
                 data && (
                     <div className={cx('DayInfo-Card')}>
                         {/* Ngày */}
+                        <div className={cx('DisplayFull-Button')}>
+                            <button onClick={(() => onClick())}> X</button>
+                        </div>
                         <div className={cx('DayInfo-Content')}>
                             <div className={cx('Daily-Content')}>
                                 <h3>

@@ -1,16 +1,43 @@
-.DayInfoDetail{
+.DayInfoDetail {
     position: absolute;
-    width: 100%; 
+    width: 100%;
     left: 0;
-   
 }
 
+.DisplayFull-Button {
+    background-color: white;
+    color: blue;
+    border: none;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    padding-top: 1px;
+}
+
+.DisplayFull-Button {
+    width: 40px;
+    margin-left: auto;
+}
+
+.DisplayFull-Button button {
+    background-color: white;
+    color: blue;
+    border: none;
+    font-size: 20px;
+    width: 25px;
+    height: 25px;
+    padding-top: 1px;
+}
+
+.DisplayFull-Button button:active {
+    border: 1px solid blue;
+    border-radius: 100rem;
+}
 
 .DayInfo-Card {
     gap: 0;
     width: 760px;
     background-color: white;
-
 
     .Button-Close {
         margin-left: auto;
@@ -124,13 +151,8 @@
                             white-space: nowrap;
                         }
                     }
-
-
                 }
             }
         }
     }
-
-
-
 }
